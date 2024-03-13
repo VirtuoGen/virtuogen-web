@@ -1,0 +1,75 @@
+.introduction {
+  height: 100%;
+  width: 100%;
+  border: 0.5px solid #0000;
+  border-radius: 24px;
+  background:
+    linear-gradient(#e8e2e2, #f4f2f2) padding-box,
+    linear-gradient(var(--angle), rgb(252, 248, 248) 50%, #ffb468) border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  .introduction {
+    background:
+      linear-gradient(#040404, #040404) padding-box,
+      linear-gradient(var(--angle), rgb(5, 5, 5) 50%, #ffb468) border-box;
+    animation: 7s rotate linear infinite;
+  }
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.blob {
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  animation: rotatei 10s infinite;
+  opacity: 0.3;
+}
+
+@keyframes rotatei {
+  from {
+    rotate: 0deg;
+  }
+
+  50% {
+    scale: 1 1.2;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  height: 100%;
+  overflow-x: scroll;
+  padding: 0px 0;
+  margin: 0 auto;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+  height: 5px;
+  width: 5px;
+  -webkit-border-radius: 1ex;
+}
+
+.content li {
+  z-index: 20;
+  /* flex: 0 0 300px; */
+  margin: 20px;
+}
