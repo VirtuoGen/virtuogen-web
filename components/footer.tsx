@@ -9,7 +9,7 @@ import { Input } from "./ui/input";
 
 const Footer = () => {
   return (
-    <footer className="z-50 flex w-full flex-col justify-center bg-gradient-to-r from-[#FFE6D5] via-white-origin to-[#FFB88A] px-20 dark:from-[#1A1A1A] dark:via-[#3B3B3B] dark:to-[#1B1B1B]">
+    <footer className="via-virtuo-white-origin z-50 flex w-full flex-col justify-center bg-gradient-to-r from-[#FFE6D5] to-[#FFB88A] px-20 dark:from-[#1A1A1A] dark:via-[#3B3B3B] dark:to-[#1B1B1B]">
       <div className="my-10 flex flex-col justify-center space-y-10">
         <Logo classname="mx-auto md:mx-0" />
 
@@ -23,7 +23,7 @@ const Footer = () => {
                     <Link
                       key={index}
                       href={value.href}
-                      className="transition-all duration-300 hover:scale-105 hover:text-orange-origin"
+                      className="hover:text-virtuo-orange-origin transition-all duration-300 hover:scale-105"
                     >
                       {value.title}
                     </Link>
@@ -40,21 +40,21 @@ const Footer = () => {
             <Input
               type="email"
               placeholder="Your Email"
-              className="dark:bg-[#505050] dark:placeholder:text-white-origin/40"
+              className="bg-virtuo-white-origin dark:placeholder:text-virtuo-white-origin/40 dark:bg-[#505050]"
             />
             <Button
               variant="secondary"
               size="icon"
-              className="hover:bg-orange-hover dark:hover:bg-orange-hover mx-auto w-1/2 rounded-md bg-black-one text-xs font-light text-white-origin transition-all duration-500 hover:text-white-origin dark:bg-secondary md:mx-0 md:text-sm"
+              className="text-virtuo-white-origin hover:text-virtuo-white-origin bg-virtuo-black-one hover:bg-virtuo-orange-hover dark:hover:bg-virtuo-orange-hover mx-auto w-1/2 rounded-md text-xs font-light transition-all duration-500 dark:bg-secondary md:mx-0 md:text-sm"
             >
               Subscribe
             </Button>
           </div>
         </div>
       </div>
-      <div className="my-2 h-[0.5px] w-full bg-black-one dark:bg-white-origin/40" />
+      <div className="dark:bg-virtuo-white-origin/40 bg-virtuo-black-one my-2 h-[0.5px] w-full" />
       <div className="z-50 flex flex-col items-center justify-between md:flex-row">
-        <p className="whitespace-nowrap text-center text-sm dark:text-white-origin/50">
+        <p className="dark:text-virtuo-white-origin/50 whitespace-nowrap text-center text-sm">
           VirtuoGen, Inc. @2023 All rights reserved
         </p>
         <div className="flex space-x-1">

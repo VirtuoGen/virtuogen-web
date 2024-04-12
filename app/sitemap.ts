@@ -12,14 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://virtuogen.in/contacts",
       lastModified: new Date(),
     },
-    {
-      url: "https://virtuogen.in/",
-      lastModified: new Date(),
-    },
-    {
-      url: "https://virtuogen.in/",
-      lastModified: new Date(),
-    },
   ];
 }
 
@@ -28,10 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 // <urlset xmlns="/schemas/sitemap/0.9">
 //   <url>
 //     <loc></loc>
-//     <lastmod>2023-04-06T15:02:24.021Z</lastmod>
-//   </url>
-//   <url>
-//     <loc>/https://virtuogen.in/</loc>
 //     <lastmod>2023-04-06T15:02:24.021Z</lastmod>
 //   </url>
 //   <url>

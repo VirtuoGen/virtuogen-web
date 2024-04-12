@@ -24,6 +24,46 @@ export const FooterLinks = {
   ],
 };
 
+type CompanyDataType = {
+  title: string;
+  companyImageUrl: string;
+  companyName: string;
+  location: string;
+  salary: string;
+  level: string;
+  roleType: string;
+};
+
+export const companyData: CompanyDataType[] = [
+  {
+    title: "Software Engineer",
+    companyImageUrl: "/amazon.png",
+    companyName: "Amazon",
+    location: "California, USA",
+    salary: "1.5 CR",
+    level: "Senior-Level",
+    roleType: "Full-time",
+  },
+  {
+    title: "Software Engineer",
+    companyImageUrl: "/uber.png",
+    companyName: "Uber",
+    location: "Bangalore, India",
+    salary: "30 LPA",
+    level: "Senior-Level",
+    roleType: "Full-time",
+  },
+  {
+    title: "Software Engineer",
+    companyImageUrl: "/uber.png",
+    companyName: "Uber",
+    location: "Bangalore, India",
+    salary: "30 LPA",
+    level: "Senior-Level",
+    roleType: "Full-time",
+  },
+];
+
 type BentoType = {
   mainHeader: string;
   subHeader: string;
@@ -40,8 +80,8 @@ export const bento: BentoType[] = [
     subHeader: "Analytics",
     description:
       "Provide employers with comprehensive analytics and insights into candidates performance communication skills, and suitability for the role, aiding in informed hiring decisions.",
-    imageUrl: "/assets/candidate.png",
-    icon: "/assets/analytics_icon.svg",
+    imageUrl: "/assets/backgrounds/candidate.png",
+    icon: "/assets/icons/analytics_icon.svg",
     wordsToHighlight: ["analytics"],
   },
   {
@@ -49,16 +89,16 @@ export const bento: BentoType[] = [
     subHeader: "Audio Analytics",
     description:
       "Incorporate transformer models for accurate detection and response to candidates' speech patterns in virtual interviews.",
-    imageUrl: "/assets/audioRecog.svg",
-    icon: "/assets/audio_lines.svg",
+    imageUrl: "/assets/backgrounds/audioRecog.svg",
+    icon: "/assets/icons/audio_lines.svg",
   },
   {
     mainHeader: "Scalable Cloud Deployment",
     subHeader: "Cloud Scalibility",
     description:
       "Utilise AWS EC2 & S3 for seamless, accessible, and reliable operation, ensuring uptime during peak recruitment periods.",
-    imageUrl: "/assets/cloudScale.svg",
-    icon: "/assets/cloud_icon.svg",
+    imageUrl: "/assets/backgrounds/cloudScale.svg",
+    icon: "/assets/icons/cloud_icon.svg",
     wordsToHighlight: ["AWS", "EC2", "S3"],
   },
   {
@@ -66,27 +106,27 @@ export const bento: BentoType[] = [
     subHeader: "OpenAI's API Integration",
     description:
       "Integrate with OpenAI's API for expanded features like background checks, skills assessments, and interview scheduling.",
-    imageUrl: "/assets/openai.svg",
-    icon: "/assets/openai_icon.svg",
+    imageUrl: "/assets/backgrounds/openai1.svg",
+    icon: "/assets/icons/openai_icon.svg",
     wordsToHighlight: ["OpenAI's", "API"],
     additionalStyles: { textDecoration: "underline" },
   },
 
   {
-    mainHeader: "Candidate Anlytics Dashboard",
-    subHeader: "XYZ",
+    mainHeader: "Realtime Candidate Feedback",
+    subHeader: "Insights",
     description:
-      "ntegrate with OpenAI's API for expanded features like background checks, skills assessments, and interview scheduling.",
-    imageUrl: "/assets/lock.svg",
-    icon: "/assets/lock_icon.svg",
+      "Offer instant feedback, insights, and improvement suggestions to enhance candidate performance and interview experience.",
+    imageUrl: "/assets/backgrounds/cf.svg",
+    icon: "/assets/icons/insights.svg",
   },
   {
     mainHeader: "Integration with Applicant Tracking Systems (ATS)",
     subHeader: "ATS Integration Solution",
     description:
       "Seamlessly integrate with existing ATS platforms to streamline the hiring process, enabling automatic transfer of candidate data and interview feedback for efficient candidate management.",
-    imageUrl: "/assets/lock.svg",
-    icon: "/assets/ats_icon.svg",
+    imageUrl: "/assets/backgrounds/ats_sample.png",
+    icon: "/assets/icons/ats_icon.svg",
     wordsToHighlight: ["ATS", "platforms"],
   },
   {
@@ -94,8 +134,8 @@ export const bento: BentoType[] = [
     subHeader: "Secure Data Encryption",
     description:
       "Protect candidate information with advanced encryption and security measures, ensuring compliance with GDPR and CCPA.",
-    imageUrl: "/assets/lock.svg",
-    icon: "/assets/lock_icon.svg",
+    imageUrl: "/assets/backgrounds/lock.svg",
+    icon: "/assets/icons/lock_icon.svg",
     wordsToHighlight: ["GDPR", "CCPA"],
   },
 ];
@@ -103,7 +143,7 @@ export const bento: BentoType[] = [
 export const content = [
   {
     title: "Job Seekers",
-    titleIconUrl: "/assets/job_search.svg",
+    titleIconUrl: "/assets/icons/job_search.svg",
     description:
       "Empower job seekers with tailored interview practice, feedback, and insights for success.",
     points: [
@@ -118,7 +158,7 @@ export const content = [
   },
   {
     title: "Job Seekers",
-    titleIconUrl: "/assets/job_search.svg",
+    titleIconUrl: "/assets/icons/job_search.svg",
     description:
       "Empower job seekers with tailored interview practice, feedback, and insights for success.",
     points: [
@@ -133,7 +173,7 @@ export const content = [
   },
   {
     title: "Job Seekers",
-    titleIconUrl: "/assets/job_search.svg",
+    titleIconUrl: "/assets/icons/job_search.svg",
     description:
       "Empower job seekers with tailored interview practice, feedback, and insights for success.",
     points: [
@@ -148,7 +188,7 @@ export const content = [
   },
   {
     title: "Job Seekers",
-    titleIconUrl: "/assets/job_search.svg",
+    titleIconUrl: "/assets/icons/job_search.svg",
     description:
       "Empower job seekers with tailored interview practice, feedback, and insights for success.",
     points: [

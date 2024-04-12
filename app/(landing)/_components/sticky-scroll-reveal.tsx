@@ -37,13 +37,13 @@ export const StickyScroll = () => {
   );
 
   return (
-    <div className="relative h-full w-full rounded-r-2xl border bg-white-card dark:bg-black-one">
+    <div className="relative size-full rounded-r-2xl border bg-virtuo-white-card dark:bg-virtuo-black-one">
       <Image
-        src={"/assets/noise.png"}
+        src={"/assets/backgrounds/noise.png"}
         alt="noise"
         fill={true}
         sizes="100vw"
-        className="absolute h-full w-full opacity-10"
+        className="absolute size-full opacity-10"
       />
       <div className="absolute -left-[48px]">
         <motion.div
@@ -70,7 +70,7 @@ export const StickyScroll = () => {
               borderColor:
                 scrollYProgress.get() > 0 ? "white" : "var(--orange-600)",
             }}
-            className="bg-white h-2 w-2 rounded-full border border-neutral-300"
+            className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
           />
         </motion.div>
         <svg
@@ -134,13 +134,13 @@ export const StickyScroll = () => {
             <p className="ml-5 mt-4 text-sm md:text-base">
               {value.description}
             </p>
-            <ol className="list-decimal text-sm text-orange-origin md:text-base">
+            <ol className="list-decimal text-sm text-virtuo-orange-origin md:text-base">
               {value.points.map((list, index) => {
                 const [beforeColon, afterColon] = list.split(":");
                 return (
                   <li key={index}>
                     {beforeColon}:
-                    <span className="text-black-one dark:text-white-origin">
+                    <span className="text-virtuo-black-one dark:text-virtuo-white-origin">
                       {afterColon}
                     </span>
                   </li>
@@ -148,19 +148,19 @@ export const StickyScroll = () => {
               })}
             </ol>
             <div className="flex items-center space-x-3">
-              <SquareUser className="h-5 w-5 text-black-one/40 dark:text-white-origin/40" />
-              <h2 className="font-dmsans text-sm text-black-one/40 dark:text-white-origin/40 md:text-lg">
+              <SquareUser className="h-5 w-5 text-virtuo-black-one/40 dark:text-virtuo-white-origin/40" />
+              <h2 className="font-dmsans text-sm text-virtuo-black-one/40 dark:text-virtuo-white-origin/40 md:text-lg">
                 {value.icon1Header}
               </h2>
             </div>
             <div className="mt-2 flex items-center space-x-3">
-              <Building2 className="h-5 w-5 text-black-one/40 dark:text-white-origin/40" />
-              <h2 className="font-dmsans text-sm text-black-one/40 dark:text-white-origin/40 md:text-lg">
+              <Building2 className="size-5 text-virtuo-black-one/40 dark:text-virtuo-white-origin/40" />
+              <h2 className="font-dmsans text-sm text-virtuo-black-one/40 dark:text-virtuo-white-origin/40 md:text-lg">
                 {value.icon2Header}
               </h2>
             </div>
             <div
-              className={`absolute -bottom-6 h-0.5 w-full transform ${index !== 3 ? "border" : ""} border-dashed border-black-origin dark:border-white-origin`}
+              className={`absolute -bottom-6 h-0.5 w-full transform ${index !== 3 ? "border" : ""} border-dashed border-virtuo-black-origin dark:border-virtuo-white-origin`}
             />
           </li>
         ))}

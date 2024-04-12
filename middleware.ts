@@ -10,6 +10,8 @@ export default authMiddleware({
     "/terms-and-conditions",
     "/pricing",
     "/login",
+    "/test", //CHANGE: THIS IMPLIES TO RECUITER ROUTE, REMOVE THIS LATER TO MAKE IT PROTECTED
+    "/test2", //CHANGE: THIS IMPLIES TO CANDIDATE ROUTE, REMOVE THIS LATER TO MAKE IT PROTECTED,
   ],
   // Routes that can always be accessed, and have
   // no authentication information

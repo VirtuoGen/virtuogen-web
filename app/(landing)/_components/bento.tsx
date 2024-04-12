@@ -83,8 +83,8 @@ const Bento = () => {
         className="relative col-span-12 flex items-end rounded-2xl border bg-cover pb-4 pr-4 lg:col-span-6"
         style={{ backgroundImage: `url('${bento[0].imageUrl}')` }}
       >
-        <div className="flex w-full flex-col space-y-4 rounded-r-xl bg-white-origin/80 p-4 text-black-origin">
-          <h3 className="font-dmsans flex items-center text-xs font-bold text-orange-origin">
+        <div className="flex w-full flex-col space-y-4 rounded-r-xl bg-virtuo-white-origin/80 p-4 text-virtuo-black-origin">
+          <h3 className="flex items-center font-dmsans text-xs font-bold text-virtuo-orange-origin">
             <Image
               src={bento[0].icon}
               alt={bento[0].subHeader}
@@ -97,7 +97,7 @@ const Bento = () => {
           <h1 className="font-dmsans text-xl font-semibold">
             {bento[0].mainHeader}
           </h1>
-          <p className="text-start text-black-origin/90">
+          <p className="text-start text-virtuo-black-origin/90">
             {highlightWords(
               bento[0].description,
               bento[0].wordsToHighlight?.map((word) => word.toLowerCase()),
@@ -120,16 +120,16 @@ const Bento = () => {
                 }}
                 custom={index}
                 key={index}
-                className={`col-span-12 lg:col-span-1 ${index === 1 || index === 3 ? "col-start-1" : "col-span-1 lg:col-start-2"} relative flex flex-col space-y-4 rounded-2xl border bg-white-card bg-cover p-4 text-black-one dark:bg-black-one dark:text-white-origin`}
+                className={`col-span-12 lg:col-span-1 ${index === 1 || index === 3 ? "col-start-1" : "col-span-1 lg:col-start-2"} relative flex flex-col space-y-4 rounded-2xl border bg-virtuo-white-card bg-cover p-4 text-virtuo-black-one dark:bg-virtuo-black-one dark:text-virtuo-white-origin`}
               >
                 <Image
-                  src={"/assets/noise.png"}
+                  src={"/assets/backgrounds/noise.png"}
                   alt="noise"
                   fill={true}
                   sizes="100vw"
                   className="absolute h-full w-full opacity-10"
                 />
-                <h3 className="font-dmsans z-10 flex items-center text-xs font-bold text-orange-origin">
+                <h3 className="z-10 flex items-center font-dmsans text-xs font-bold text-virtuo-orange-origin">
                   <Image
                     src={value.icon}
                     alt={value.subHeader}
@@ -139,10 +139,10 @@ const Bento = () => {
                   />
                   {value.subHeader}
                 </h3>
-                <h1 className="font-dmsans z-10 text-xl font-semibold">
+                <h1 className="z-10 font-dmsans text-xl font-semibold">
                   {value.mainHeader}
                 </h1>
-                <p className="z-10 text-start text-black-one dark:text-white-origin/65">
+                <p className="z-10 text-start text-virtuo-black-one dark:text-virtuo-white-origin/65">
                   {highlightWords(
                     value.description,
                     value.wordsToHighlight?.map((word) => word.toLowerCase()),
@@ -161,7 +161,7 @@ const Bento = () => {
         )}
       </div>
       <motion.div
-        className="relative col-span-12 rounded-2xl border bg-white-card p-4 dark:bg-black-one lg:col-span-8"
+        className="relative col-span-12 rounded-2xl border bg-virtuo-white-card p-4 dark:bg-virtuo-black-one lg:col-span-8"
         variants={fadeInAnimationVariants}
         initial="initial"
         whileInView="animate"
@@ -171,14 +171,14 @@ const Bento = () => {
         custom={5}
       >
         <Image
-          src={"/assets/noise.png"}
+          src={"/assets/backgrounds/noise.png"}
           alt="noise"
           fill={true}
           sizes="100vw"
           className="absolute h-full w-full opacity-10"
         />
         <div className="flex flex-col space-y-4">
-          <h3 className="font-dmsans z-10 mt-4 flex items-center text-xs font-bold text-orange-origin">
+          <h3 className="z-10 mt-4 flex items-center font-dmsans text-xs font-bold text-virtuo-orange-origin">
             <Image
               src={bento[5].icon}
               alt={bento[5].subHeader}
@@ -188,19 +188,28 @@ const Bento = () => {
             />
             {bento[5].subHeader}
           </h3>
-          <h1 className="font-dmsans z-10 text-xl font-semibold">
+          <h1 className="z-10 font-dmsans text-xl font-semibold">
             {bento[5].mainHeader}
           </h1>
-          <p className="z-10 text-start text-black-one dark:text-white-origin/65">
+          <p className="z-10 text-start text-virtuo-black-one dark:text-virtuo-white-origin/65">
             {highlightWords(
               bento[5].description,
               bento[5].wordsToHighlight?.map((word) => word.toLowerCase()),
             )}
           </p>
+          <div className="group/card relative flex h-[200px] w-full items-center justify-center lg:h-[300px]">
+            <Image
+              src={bento[5].imageUrl}
+              alt="hi"
+              width={200}
+              height={200}
+              className="z-40 mx-auto h-[80%] w-[80%] transition-all duration-500 hover:scale-105"
+            />
+          </div>
         </div>
       </motion.div>
       <motion.div
-        className="relative col-span-12 rounded-2xl border bg-white-card p-4 dark:bg-black-one lg:col-span-4"
+        className="relative col-span-12 rounded-2xl border bg-virtuo-white-card p-4 dark:bg-virtuo-black-one lg:col-span-4"
         variants={fadeInAnimationVariants}
         initial="initial"
         whileInView="animate"
@@ -210,7 +219,7 @@ const Bento = () => {
         custom={6}
       >
         <Image
-          src={"/assets/noise.png"}
+          src={"/assets/backgrounds/noise.png"}
           alt="noise"
           fill={true}
           sizes="100vw"
@@ -218,7 +227,7 @@ const Bento = () => {
         />
 
         <div className="flex flex-col space-y-4">
-          <h3 className="font-dmsans z-10 mt-4 flex items-center text-xs font-bold text-orange-origin">
+          <h3 className="z-10 mt-4 flex items-center font-dmsans text-xs font-bold text-virtuo-orange-origin">
             <Image
               src={bento[6].icon}
               alt={bento[6].subHeader}
@@ -228,10 +237,10 @@ const Bento = () => {
             />
             {bento[6].subHeader}
           </h3>
-          <h1 className="font-dmsans z-10 text-xl font-semibold">
+          <h1 className="z-10 font-dmsans text-xl font-semibold">
             {bento[6].mainHeader}
           </h1>
-          <p className="z-10 text-start text-black-one dark:text-white-origin/65">
+          <p className="z-10 text-start text-virtuo-black-one dark:text-virtuo-white-origin/65">
             {highlightWords(
               bento[6].description,
               bento[6].wordsToHighlight?.map((word) => word.toLowerCase()),

@@ -37,7 +37,7 @@ export default function RootLayout({
     <ClerkProvider publishableKey={env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
       <html lang="en">
         <body
-          className={`${volkhov.variable} ${dmSans.variable} ${ibm.variable} min-h-screen scroll-smooth bg-white-origin font-ibm dark:bg-black-origin`}
+          className={`${volkhov.variable} ${dmSans.variable} ${ibm.variable} bg-virtuo-white-origin dark:bg-virtuo-black-origin min-h-screen scroll-smooth font-ibm`}
         >
           <ThemeProvider
             attribute="class"

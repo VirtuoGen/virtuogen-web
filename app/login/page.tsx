@@ -1,53 +1,50 @@
 "use client";
 
-import Link from "next/link";
+import { Building2, UserRoundSearch } from "lucide-react";
 
-import { useMotionTemplate, motion } from "framer-motion";
-
-import { UserButton } from "@clerk/nextjs";
-import { Building2, ChevronRight, UserRoundSearch } from "lucide-react";
-
-import Cursor from "../(landing)/_components/cursor";
-import Bento from "../(landing)/_components/bento";
-import { Reveal } from "../(landing)/_components/reveal";
 import { Button } from "@/components/ui/button";
-import { StickyScroll } from "@/app/(landing)/_components/sticky-scroll-reveal";
-import styles from "../(landing)/_components/landing.module.css";
-import Logo from "@/components/logo";
-import { LampContainer } from "./lamp";
+import { SignUpButton } from "@clerk/clerk-react";
 
 export default function Home() {
   return (
     <div className="relative min-h-full overflow-x-hidden">
-      <Reveal>
-        <section className="text-black relative flex h-screen flex-col items-center justify-center space-y-8 dark:text-white-origin">
-          <div className="flex flex-col whitespace-nowrap text-center text-3xl font-medium md:text-5xl">
-            <div className="mb-10">
-              <span className="bg-gradient-to-r from-orange-gradientStart to-orange-gradientEnd bg-clip-text pr-1 font-dmsans text-3xl font-medium  text-transparent md:text-5xl">
-                VirtuoGen
-              </span>
-              <div className="group relative mx-auto h-3 max-w-7xl">
-                <div className="h-3 w-full bg-black-one"></div>
-                <div className="absolute -inset-1 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 opacity-25 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"></div>
-              </div>
+      <section className="relative flex h-[calc(100vh-40vh)] flex-col items-center justify-center space-y-8 text-virtuo-black-origin dark:text-virtuo-white-origin">
+        <div className="flex flex-col space-y-10 whitespace-nowrap text-center text-3xl font-medium md:text-5xl">
+          <span className="bg-gradient-to-r from-virtuo-orange-gradientStart to-virtuo-orange-gradientEnd bg-clip-text pr-1 font-dmsans text-3xl font-medium  text-transparent md:text-5xl">
+            VirtuoGen
+          </span>
+          <div className="relative z-40">
+            <div className="relative -mt-7">
+              <h2 className="text-sm">Get started with VirtuoGen!</h2>
+              <span className="absolute -bottom-2 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-[#ff8f47]/0 via-[#ff8f47]/100 to-[#ff8f47]/0 transition-opacity duration-500 group-hover:opacity-40"></span>
             </div>
-            <div className="flex flex-col space-y-2">
-              <Button variant="link" className="bg-black-one">
+          </div>
+          <div className="flex flex-col space-y-2">
+            <SignUpButton afterSignInUrl="/test/dashboard" mode="modal">
+              <Button
+                variant="link"
+                className="border bg-virtuo-white-card transition-all duration-500 hover:bg-virtuo-black-origin hover:text-virtuo-white-origin dark:bg-virtuo-black-one dark:hover:bg-accent"
+              >
                 <span className="mr-2">
                   <UserRoundSearch className="h-4 w-4" />
                 </span>
                 Sign Up as Job Seeker
               </Button>
-              <Button variant="link" className="bg-black-one">
+            </SignUpButton>
+            <SignUpButton mode="modal">
+              <Button
+                variant="link"
+                className="border bg-virtuo-white-card transition-all duration-500 hover:bg-virtuo-black-origin hover:text-virtuo-white-origin dark:bg-virtuo-black-one dark:hover:bg-accent"
+              >
                 <span className="mr-2">
                   <Building2 className="h-4 w-4" />
                 </span>
                 Sign Up as Recruiter
               </Button>
-            </div>
+            </SignUpButton>
           </div>
-        </section>
-      </Reveal>
+        </div>
+      </section>
     </div>
   );
 }

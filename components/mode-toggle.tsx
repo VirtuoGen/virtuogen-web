@@ -22,7 +22,7 @@ export function ModeToggle() {
         <Button
           variant="outline"
           size="icon"
-          className="hover:bg-black-origin hover:text-white-origin transition-all duration-500 dark:bg-[#040404] dark:hover:bg-accent "
+          className="transition-all duration-500 hover:bg-virtuo-black-origin hover:text-virtuo-white-origin dark:bg-[#040404] dark:hover:bg-accent"
         >
           <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 dark:-rotate-90 dark:scale-0" />
           <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 dark:rotate-0 dark:scale-100" />

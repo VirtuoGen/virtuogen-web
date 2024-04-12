@@ -64,28 +64,23 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        white: {
-          100: "#FFFFFF10",
-          200: "#FFFFFF20",
-          300: "#FFFFFF30",
-          400: "#FFFFFF40",
-          500: "#FFFFFF50",
-          600: "#FFFFFF60",
-          700: "#FFFFFF70",
-          800: "#FFFFFF80",
-          900: "#FFFFFF90",
-          card: "#FFFCFA",
-          origin: "#FFFFFF",
-        },
-        black: {
-          one: "#1A1A1A",
-          origin: "#000000",
-        },
-        orange: {
-          origin: "#FF802F",
-          gradientStart: "#E87B35",
-          gradientEnd: "#FFC49F",
-          hover: "#D46C00",
+        virtuo: {
+          gray: "#505050",
+          gray2: "#F4F6F8",
+          black: {
+            one: "#1A1A1A",
+            origin: "#000000",
+          },
+          white: {
+            card: "#FFFCFA",
+            origin: "#FFFFFF",
+          },
+          orange: {
+            origin: "#FF802F",
+            gradientStart: "#E87B35",
+            gradientEnd: "#FFC49F",
+            hover: "#D46C00",
+          },
         },
       },
       borderRadius: {

@@ -27,7 +27,7 @@ export const Cursor = () => {
 
   return (
     <div
-      className={`${styles.blob} fixed -left-1/2 -top-1/2 h-[10vmax] bg-orange-origin blur-2xl dark:h-[7vmax] dark:bg-white-origin dark:blur-3xl`}
+      className={`${styles.blob} dark:bg-virtuo-white-origin bg-virtuo-orange-origin fixed -left-1/2 -top-1/2 h-[10vmax] blur-2xl dark:h-[7vmax] dark:blur-3xl`}
       id="blob"
     />
   );

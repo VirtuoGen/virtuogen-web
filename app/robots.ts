@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       // disallow: "//",
     },
-    sitemap: "",
+    sitemap: "https://virtuogen.in/sitemap.xml",
   };
 }
 
