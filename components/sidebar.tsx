@@ -14,7 +14,6 @@ import {
   LayoutDashboard,
   LogOut,
   NotebookPen,
-  Users,
 } from "lucide-react";
 import { useClerk } from "@clerk/clerk-react";
 import { useUser } from "@clerk/clerk-react";
@@ -69,7 +68,7 @@ const recruiterNavLinks: NavLink[] = [
   },
   {
     name: "Shortlisted Candidates",
-    icon: <Users className="w-8 min-w-8" />,
+    icon: <Building2 className="w-8 min-w-8" />,
     href: "shortlisted-candidates",
   },
   {
@@ -85,10 +84,14 @@ const candidateNavLinks: NavLink[] = [
     icon: <LayoutDashboard className="w-8 min-w-8" />,
     href: "your-dashboard",
   },
-  { name: "Job", icon: <Briefcase className="w-8 min-w-8" />, href: "jobs" },
-  { name: "Tasks", icon: <Building2 className="w-8 min-w-8" /> },
   {
-    name: "Candidate's Profile",
+    name: "Job Board",
+    icon: <Briefcase className="w-8 min-w-8" />,
+    href: "jobs-board",
+  },
+  { name: "Applications", icon: <Building2 className="w-8 min-w-8" /> },
+  {
+    name: "Tasks",
     icon: <NotebookPen className="w-8 min-w-8" />,
   },
 ];

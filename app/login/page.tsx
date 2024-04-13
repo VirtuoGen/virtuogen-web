@@ -37,7 +37,7 @@ export default function Home() {
             </SignUpButton>
             <SignUpButton
               afterSignInUrl="/recruiter/dashboard"
-              afterSignUpUrl="/recruiter/dashboard"
+              afterSignUpUrl="/sign-up"
               mode="modal"
             >
               <Button
