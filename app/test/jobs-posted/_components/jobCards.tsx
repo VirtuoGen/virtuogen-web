@@ -1,8 +1,10 @@
+import Image from "next/image";
+
+import { Zap } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { Zap } from "lucide-react";
-import Image from "next/image";
 
 interface JobCardsProps {
   classnames?: string;
@@ -25,7 +27,7 @@ const JobCards = (prop: JobCardsProps) => {
     >
       <CardHeader>
         <CardTitle className="flex-flex-col h-fit rounded-lg bg-[#FFE1CC] px-6 py-4 font-dmsans">
-          <span className="space-x-g flex h-[10px] w-[100px] items-center justify-center rounded-lg bg-secondary px-5 py-4 text-xs text-white transition-all duration-500">
+          <span className="space-x-g flex h-[10px] w-[100px] items-center justify-center rounded-lg bg-virtuo-orange-origin px-5 py-4 text-xs text-white transition-all duration-500">
             {prop.roleType}
           </span>
           <Image

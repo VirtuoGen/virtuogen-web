@@ -202,3 +202,30 @@ export const content = [
     icon2Header: "Organizations",
   },
 ];
+
+export const dashboardData = [
+  {
+    icon: "dashboard_total",
+    title: "Total Applicants",
+    value: 80,
+    label: "last week",
+  },
+  {
+    icon: "dashboard_date",
+    title: "Interview Schedule",
+    value: 3,
+    label: "last week",
+  },
+  {
+    icon: "dashboard_visited",
+    title: "Profile Visited",
+    value: 20,
+    label: "last week",
+  },
+  {
+    icon: "dashboard_hired",
+    title: "Hired",
+    value: 8,
+    label: "last week",
+  },
+];

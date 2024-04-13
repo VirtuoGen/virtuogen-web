@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { z } from "zod";
 
 //TODO: Change to zod schema when connection to API
 type Payment = {

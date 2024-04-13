@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { Mails } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -13,7 +12,7 @@ type Payment = {
   id: string;
   candidateName: string;
   jobtitle: string;
-  mail: string;
+  appliedOn: string;
 };
 
 //TODO: Get Data from API/DB
@@ -22,13 +21,13 @@ export const payments: Payment[] = [
     id: "728ed52f",
     candidateName: "Michael Burrow",
     jobtitle: "Front-end Dev",
-    mail: "mailto:xyz@yourapplicationdomain.com",
+    appliedOn: "10/04/2024",
   },
   {
     id: "489e1d42",
     candidateName: "Tak Kumar",
     jobtitle: "Full-stack Dev",
-    mail: "mailto:xyz@yourapplicationdomain.com",
+    appliedOn: "10/04/2024",
   },
   // ...
 ];
@@ -55,29 +54,29 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "jobtitle",
-    header: "Job Title",
+    header: "Applied for position",
   },
+  { accessorKey: "appliedOn", header: "Applied On" },
   {
-    accessorKey: "mail",
-    header: "Mail",
+    accessorKey: "action",
+    header: "Action",
     cell: ({ row }) => {
       return (
         <div className="flex items-center justify-center space-x-3">
-          <Link href={row.original.mail} target="_blank">
+          <Link href={row.original.appliedOn} target="_blank">
             <Button
               variant="outline"
               className="flex h-1/2 items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
             >
-              <span className="hidden md:block">Schedule an interview</span>
+              <span className="hidden md:block">Shortlist</span>
             </Button>
           </Link>
-          <Link href={row.original.mail} target="_blank">
+          <Link href={row.original.appliedOn} target="_blank">
             <Button
               variant="outline"
-              className="flex h-1/2 items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
+              className="flex h-1/2 items-center justify-center space-x-1 bg-[#BC2720] px-5 py-4 transition-all duration-500 hover:bg-red-900 hover:text-virtuo-white-origin"
             >
-              <Mails className="size-4" />
-              <span className="hidden md:block">Message</span>
+              <span className="hidden md:block">Reject</span>
             </Button>
           </Link>
         </div>

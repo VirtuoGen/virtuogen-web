@@ -1,9 +1,9 @@
 "use client";
 
 import { Building2, UserRoundSearch } from "lucide-react";
+import { SignUpButton } from "@clerk/clerk-react";
 
 import { Button } from "@/components/ui/button";
-import { SignUpButton } from "@clerk/clerk-react";
 
 export default function Home() {
   return (

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
 import { motion, useAnimationControls } from "framer-motion";
@@ -20,7 +21,6 @@ import { useUser } from "@clerk/clerk-react";
 
 import { cn } from "@/lib/utils";
 import { useUserType } from "@/lib/store/use-user-type";
-import Image from "next/image";
 
 const containerVariants = {
   close: {
@@ -137,7 +137,7 @@ const Sidebar = () => {
             height={40}
           />
           {isOpen ? (
-            <p className="text-neutral-400">
+            <p className="text-virtuo-gray dark:text-white/[0.6]">
               {isOpen && user?.firstName} <br />
               <span className="truncate text-xs">
                 {isOpen && user?.primaryEmailAddress?.emailAddress}
@@ -203,9 +203,10 @@ const NavigationLink = ({
     <Link
       href={href || "#"}
       className={cn(
-        "flex cursor-pointer place-items-center gap-3 rounded stroke-neutral-400 stroke-[0.75] p-1 text-neutral-400 transition-colors duration-100 hover:bg-neutral-700/30 hover:stroke-virtuo-orange-origin hover:text-virtuo-orange-origin",
+        "flex cursor-pointer place-items-center gap-3 rounded stroke-neutral-400 stroke-[0.75] p-1 text-virtuo-gray transition-colors duration-100 hover:bg-neutral-700/30 hover:stroke-virtuo-orange-origin hover:text-virtuo-orange-origin dark:text-white/[0.6]",
         classNames,
-        pathname.includes(href!) && "text-virtuo-orange-origin",
+        pathname.includes(href!) &&
+          "text-virtuo-orange-origin dark:text-virtuo-orange-origin",
       )}
       {...rest}
     >

@@ -2,15 +2,14 @@
 
 import Link from "next/link";
 
-import { UserButton } from "@clerk/nextjs";
 import { ChevronRight } from "lucide-react";
 
 import Cursor from "./_components/cursor";
 import Bento from "./_components/bento";
 import { Reveal } from "./_components/reveal";
-import { Button } from "@/components/ui/button";
-import { StickyScroll } from "@/app/(landing)/_components/sticky-scroll-reveal";
 import styles from "./_components/landing.module.css";
+import { Button } from "@/components/ui/button";
+import { StickyScroll } from "./_components/sticky-scroll-reveal";
 
 export default function Home() {
   return (
