@@ -77,7 +77,7 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
       className={cn(
         "fixed top-0 z-50 flex w-full items-center px-6 py-3",
         scrolled &&
-          "bg-virtuo-white-origin border-b shadow-sm dark:bg-[#040404]",
+          "border-b bg-virtuo-white-origin shadow-sm dark:bg-[#040404]",
       )}
       ref={menuRef}
     >
@@ -85,7 +85,7 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
         <Logo classname="mr-16 hidden" />
       </Link>
       <button
-        className="dark:text-virtuo-white-origin text-virtuo-gray block text-2xl md:hidden"
+        className="block text-2xl text-virtuo-gray dark:text-virtuo-white-origin md:hidden"
         tabIndex={0}
         style={{ transform: "none" }}
         onClick={() => setOpen((p) => !p)}
@@ -110,7 +110,7 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
         {navLinks.map((link, index) => (
           <Link
             key={index}
-            className="hover:text-virtuo-orange-origin transition-all duration-300 hover:scale-105"
+            className="transition-all duration-300 hover:scale-105 hover:text-virtuo-orange-origin"
             href={link.href}
           >
             {link.title}
@@ -121,7 +121,7 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="bg-virtuo-white-origin absolute left-0 right-0 top-full flex origin-top flex-col gap-4 p-4 shadow-lg"
+            className="absolute left-0 right-0 top-full flex origin-top flex-col gap-4 bg-virtuo-white-origin p-4 shadow-lg"
             variants={menuVars}
             animate="animate"
             initial="initial"
@@ -156,7 +156,7 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
               <Button
                 variant="outline"
                 size="lg"
-                className="hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover rounded-full text-base transition-all duration-500 hover:bg-accent-foreground dark:bg-secondary"
+                className="rounded-full text-base transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:bg-secondary dark:hover:bg-virtuo-orange-hover"
               >
                 Log in
               </Button>
@@ -166,7 +166,7 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
         {userId && isLoaded && requireLogin && (
           <>
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/documents">Dashboard</Link>
+              <Link href="/recruiter/dashboard">Dashboard</Link>
             </Button>
             <UserButton afterSignOutUrl="/" />
           </>
@@ -198,7 +198,7 @@ const MobileNavLink = ({ title, href }: { title: string; href: string }) => {
   return (
     <motion.div
       variants={mobileLinkVars}
-      className="text-virtuo-black-origin text-base uppercase"
+      className="text-base uppercase text-virtuo-black-origin"
     >
       <Link href={href}>{title}</Link>
     </motion.div>
