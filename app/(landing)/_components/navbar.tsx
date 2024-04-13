@@ -152,7 +152,7 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
         {!isLoaded && <Spinner />}
         {!userId && requireLogin && (
           <>
-            <SignInButton mode="modal">
+            <Link href="/login">
               <Button
                 variant="outline"
                 size="lg"
@@ -160,7 +160,7 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
               >
                 Log in
               </Button>
-            </SignInButton>
+            </Link>
           </>
         )}
         {userId && isLoaded && requireLogin && (
