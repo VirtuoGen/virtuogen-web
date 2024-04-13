@@ -1,28 +1,20 @@
 import Image from "next/image";
 
-import {
-  Banknote,
-  Briefcase,
-  CalendarDays,
-  Clock,
-  FilePenLine,
-  Hash,
-} from "lucide-react";
+import { Mails, CalendarClock, Zap, CalendarDays } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 
 const Page = () => {
   return (
     <section className="mx-auto mb-10 flex h-full w-full max-w-[1600px] flex-col overflow-hidden">
       <div className="mx-6 flex items-center justify-between p-0 py-8 md:p-10">
         <h1 className="text-2xl font-semibold text-virtuo-black-origin dark:text-virtuo-white-origin">
-          Details for Jobs
+          Schedule Interview
         </h1>
       </div>
 
       <div className="px-8 md:px-16">
-        <div className="mt-2 flex items-center">
+        <div className="mt-2 flex items-center rounded-md bg-virtuo-gray2 px-4 py-9 dark:bg-virtuo-black-one">
           <Image
             src="/assets/backgrounds/test_candidate_work.png"
             alt="candidate education"
@@ -38,52 +30,16 @@ const Page = () => {
             variant="outline"
             className="ml-auto flex h-1/2 items-center justify-center space-x-1 px-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
           >
-            <FilePenLine className="size-5" />
-            <span className="ml-3">Edit</span>
+            <Mails className="size-5" />
+            <span className="ml-3">Message</span>
           </Button>
         </div>
-        <Separator className="my-10" />
-        <div className="flex justify-between px-10 text-virtuo-gray dark:text-white/[0.6]">
-          {[
-            {
-              icon: <Banknote className="size-5" />,
-              label: "Stipend per month",
-              value: "Rs. 25,000",
-            },
-            {
-              icon: <Briefcase className="size-5" />,
-              label: "Mode",
-              value: "Remote",
-            },
-            {
-              icon: <Clock className="size-5" />,
-              label: "Qualifications",
-              value: "0-3 years",
-            },
-            {
-              icon: <CalendarDays className="size-5" />,
-              label: "Start Date",
-              value: "Immediate",
-            },
-            {
-              icon: <Hash className="size-5" />,
-              label: "Openings",
-              value: "2",
-            },
-          ].map((item, index) => (
-            <div key={index} className="text-center">
-              <div className="flex items-center space-x-2">
-                {item.icon}
-                <p>{item.label}</p>
-              </div>
-              <span className="text-black dark:text-white">{item.value}</span>
+        <div className="my-10 grid w-full grid-cols-3 grid-rows-4 gap-3">
+          <div className="col-span-3 row-span-4 rounded-b-md rounded-t-lg bg-virtuo-gray2 dark:bg-virtuo-black-one lg:col-span-2">
+            <div className="flex items-center space-x-2 rounded-t-lg bg-[#FFE1CC] px-4 py-1 text-base font-light text-black">
+              <CalendarClock color="#FF802F" width={16} height={16} />{" "}
+              <p>Interview Invitation</p>{" "}
             </div>
-          ))}
-        </div>
-        <Separator className="my-10" />
-        <div className="grid w-full grid-cols-3 grid-rows-4 gap-3 ">
-          <div className="col-span-3 row-span-4 rounded-md bg-virtuo-gray2 px-6 pt-3 dark:bg-virtuo-black-one md:col-span-2">
-            <h1 className="text-lg">About</h1>
             <div className="px-6 pt-4 text-virtuo-gray dark:text-white/[0.6]">
               <p>
                 We are seeking a talented and creative Visual Design intern with
@@ -127,7 +83,38 @@ const Page = () => {
               </ol>
             </div>
           </div>
-          <div className="col-span-3 row-span-1 rounded-md bg-virtuo-gray2 px-6 pt-3 dark:bg-virtuo-black-one md:col-span-1 md:col-start-3">
+          <div className="col-span-3 row-span-2 rounded-md bg-virtuo-gray2 px-6 pb-10 pt-3 dark:bg-virtuo-black-one lg:col-span-1 lg:col-start-3 lg:h-[90%]">
+            <h1 className="text-base lg:text-lg">Date</h1>
+            <div className="mt-3 flex space-x-3">
+              <div className="size-[80px] rounded-md bg-[#FFE1CC] lg:size-[120px]"></div>
+              <div className="text-xs lg:text-base">
+                <h2 className="text-base font-semibold lg:text-lg">
+                  First Round
+                </h2>
+                <p className="mt-1 lg:mt-4">Date: </p>
+                <p>Time: </p>
+                <p>Type: </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-span-3 row-span-1 flex justify-end space-x-3 rounded-md md:col-span-1 md:col-start-3">
+            <Button
+              variant="outline"
+              className="flex h-[40px] items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
+            >
+              <Zap className="size-5" fill="white" />
+              <span className="hidden md:block">Accept</span>
+            </Button>
+            <Button
+              variant="outline"
+              className="flex h-[40px] items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
+            >
+              <CalendarDays className="size-5" />
+              <span className="hidden md:block">Re-schedule</span>
+            </Button>
+          </div>
+
+          {/* <div className="col-span-3 row-span-1 rounded-md bg-virtuo-gray2 px-6 pt-3 dark:bg-virtuo-black-one md:col-span-1 md:col-start-3">
             <h1 className="text-lg">Skills - Mandatory</h1>
             <div className="mt-3">
               <span className="mx-auto mt-3 rounded-full bg-[#FFDFCB] px-2 py-2 text-center text-sm font-light text-virtuo-orange-origin">
@@ -142,7 +129,7 @@ const Page = () => {
                 Letter of Recommendation
               </span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

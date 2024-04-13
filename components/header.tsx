@@ -13,9 +13,9 @@ const Header = () => {
   const typeOfUser = useUserType((state) => state.userType);
 
   return (
-    <header className="ml-20 flex justify-between px-6 py-5">
+    <header className="ml-20 flex justify-between px-6 py-5 ">
       <Logo classname="flex" />
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center space-x-3 ">
         <Button
           variant="outline"
           className="bg-virtuo-white-card/ group flex max-h-[34px] items-center justify-start space-x-4 rounded-md py-1 pl-3 pr-3 text-sm font-medium text-muted-foreground hover:bg-primary/5 dark:bg-virtuo-black-one md:w-[200px]"

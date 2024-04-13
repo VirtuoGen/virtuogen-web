@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-import { SignInButton, UserButton } from "@clerk/clerk-react";
+import { UserButton } from "@clerk/clerk-react";
 import { useAuth } from "@clerk/nextjs";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -75,7 +75,7 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
   return (
     <nav
       className={cn(
-        "fixed top-0 z-50 flex w-full items-center px-6 py-3",
+        "fixed top-0 z-50 flex w-full max-w-[1600px] items-center px-6 py-3",
         scrolled &&
           "border-b bg-virtuo-white-origin shadow-sm dark:bg-[#040404]",
       )}
