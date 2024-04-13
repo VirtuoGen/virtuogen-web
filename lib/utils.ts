@@ -229,3 +229,30 @@ export const dashboardData = [
     label: "last week",
   },
 ];
+
+export const candidateDashboardData = [
+  {
+    icon: "dashboard_total",
+    title: "Total Applications",
+    value: 80,
+    label: "last week",
+  },
+  {
+    icon: "dashboard_date",
+    title: "Shortlisted",
+    value: 8,
+    label: "last week",
+  },
+  {
+    icon: "dashboard_visited",
+    title: "Profile Visited",
+    value: 20,
+    label: "last week",
+  },
+  {
+    icon: "dashboard_hired",
+    title: "Offers",
+    value: 6,
+    label: "last week",
+  },
+];

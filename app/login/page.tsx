@@ -20,7 +20,11 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col space-y-2">
-            <SignUpButton afterSignInUrl="/test/dashboard" mode="modal">
+            <SignUpButton
+              afterSignInUrl="/candidate/dashboard"
+              afterSignUpUrl="/candidate/dashboard"
+              mode="modal"
+            >
               <Button
                 variant="link"
                 className="border bg-virtuo-white-card transition-all duration-500 hover:bg-virtuo-black-origin hover:text-virtuo-white-origin dark:bg-virtuo-black-one dark:hover:bg-accent"
@@ -31,7 +35,11 @@ export default function Home() {
                 Sign Up as Job Seeker
               </Button>
             </SignUpButton>
-            <SignUpButton mode="modal">
+            <SignUpButton
+              afterSignInUrl="/recruiter/dashboard"
+              afterSignUpUrl="/recruiter/dashboard"
+              mode="modal"
+            >
               <Button
                 variant="link"
                 className="border bg-virtuo-white-card transition-all duration-500 hover:bg-virtuo-black-origin hover:text-virtuo-white-origin dark:bg-virtuo-black-one dark:hover:bg-accent"
