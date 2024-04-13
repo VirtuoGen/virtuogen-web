@@ -59,7 +59,7 @@ export default function Home() {
             <div
               className="absolute -left-6 top-32 h-36 w-[200px] rounded-3xl bg-gradient-to-br from-[#817DFF]/50 to-[#817DFF]/20 bg-contain  bg-clip-padding bg-top bg-no-repeat shadow-xl shadow-gray-300 backdrop-blur-sm backdrop-filter dark:shadow-none md:top-48 md:h-[300px] md:w-[380px]"
               style={{
-                backgroundImage: "url('/assets/backgrounds/testimonial_1.png')",
+                backgroundImage: "url('/assets/backgrounds/testimonial_2.png')",
               }}
             />
             <div className="absolute -top-10 right-4 h-40 w-40 rounded-full blur-[80px] dark:block dark:bg-[#FFEED5]/30 md:right-72 md:h-44 md:w-44 md:blur-[90px]" />
