@@ -33,14 +33,14 @@ export function DataTable<TData, TValue>({
 
   return (
     <Table>
-      <TableHeader className="border-virtuo-gray border-t">
+      <TableHeader className="border-t border-virtuo-gray">
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id} className="border-virtuo-gray">
             {headerGroup.headers.map((header) => {
               return (
                 <TableHead
                   key={header.id}
-                  className="text-virtuo-orange-origin whitespace-nowrap text-center"
+                  className="whitespace-nowrap text-center text-virtuo-orange-origin"
                 >
                   {header.isPlaceholder
                     ? null
@@ -60,7 +60,7 @@ export function DataTable<TData, TValue>({
             <TableRow
               key={row.id}
               data-state={row.getIsSelected() && "selected"}
-              className="border-virtuo-gray whitespace-nowrap border-b-[0.5px] text-center"
+              className="whitespace-nowrap border-b-[0.5px] border-virtuo-gray text-center"
             >
               {row.getVisibleCells().map((cell) => (
                 <TableCell key={cell.id}>

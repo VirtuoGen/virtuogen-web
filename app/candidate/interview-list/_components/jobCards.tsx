@@ -54,7 +54,7 @@ const JobCards = (prop: JobCardsProps) => {
       <CardContent className="flex justify-between">
         <h1 className="text-2xl">{prop.salary}</h1>
         <Button
-          className="bg-black text-white hover:underline dark:bg-[#040404] dark:hover:bg-accent"
+          className="dark:bg-virtuo-black-two bg-black text-white hover:underline dark:hover:bg-accent"
           size="lg"
         >
           <CalendarDays color="#FF802F" className="mr-2 size-4" />

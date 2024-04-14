@@ -68,7 +68,7 @@ export const columns: ColumnDef<Payment>[] = [
               variant="outline"
               className="flex h-1/2 items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
             >
-              <span className="hidden md:block">Shortlist</span>
+              <span>Shortlist</span>
             </Button>
           </Link>
           <Link href={row.original.appliedOn} target="_blank">
@@ -76,7 +76,7 @@ export const columns: ColumnDef<Payment>[] = [
               variant="outline"
               className="flex h-1/2 items-center justify-center space-x-1 bg-[#BC2720] px-5 py-4 transition-all duration-500 hover:bg-red-900 hover:text-virtuo-white-origin"
             >
-              <span className="hidden md:block">Reject</span>
+              <span>Reject</span>
             </Button>
           </Link>
         </div>

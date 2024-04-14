@@ -4,7 +4,7 @@ import { PlusIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { cn, dashboardData } from "@/lib/utils";
-import { DataTable } from "./_components/data-table";
+import { DataTable } from "@/components/data-table";
 import { columns, payments } from "./_components/column";
 
 const Page = () => {
@@ -37,7 +37,7 @@ const Page = () => {
             <p>{data.label}</p>
           </div>
         ))}
-        <div className="col-span-2 row-span-3 row-start-4 rounded-md bg-virtuo-gray2 px-6 py-3 dark:bg-virtuo-black-one lg:col-span-1 lg:row-span-2 lg:row-start-1">
+        <div className="col-span-2 row-span-3 row-start-4 rounded-md bg-virtuo-gray2 px-6 pb-3 pt-8 dark:bg-virtuo-black-one lg:col-span-1 lg:row-span-2 lg:row-start-1">
           <div className="flex justify-between">
             <h1 className="text-lg">Today&apos; Interview</h1>
             <Button
@@ -45,11 +45,11 @@ const Page = () => {
               className="flex items-center justify-center space-x-1 bg-virtuo-orange-origin/[0.3] px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover/[0.2]"
             >
               <PlusIcon className="size-4" />
-              <span className="hidden md:block">Add an Interview</span>
+              <span>Add an Interview</span>
             </Button>
           </div>
           {Array.from({ length: 3 }).map((_, index) => (
-            <div className="my-4 flex items-center" key={index}>
+            <div className="my-6 flex items-center" key={index}>
               <Image
                 src="/assets/backgrounds/test_candidate.png"
                 alt="candidate education"

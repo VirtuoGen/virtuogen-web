@@ -16,7 +16,7 @@ export default function Home() {
           <div className="relative z-40">
             <div className="relative -mt-7">
               <h2 className="text-sm">Get started with VirtuoGen!</h2>
-              <span className="absolute -bottom-2 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-[#ff8f47]/0 via-[#ff8f47]/100 to-[#ff8f47]/0 transition-opacity duration-500 group-hover:opacity-40"></span>
+              <span className="absolute -bottom-2 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-virtuo-orange-origin/0 via-virtuo-orange-origin/100 to-virtuo-orange-origin/0 transition-opacity duration-500 group-hover:opacity-40" />
             </div>
           </div>
           <div className="flex flex-col space-y-2">

@@ -74,3 +74,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .main-layout {
+    @apply ml-20 flex flex-row overflow-hidden bg-virtuo-white-origin transition-all duration-300 dark:bg-virtuo-black-origin;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-dmsans;
+  }
+}

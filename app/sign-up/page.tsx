@@ -17,7 +17,7 @@ export default function Home() {
           <div className="relative z-40">
             <div className="relative -mt-7">
               <h2 className="text-sm">Register to get started</h2>
-              <span className="absolute -bottom-2 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-[#ff8f47]/0 via-[#ff8f47]/100 to-[#ff8f47]/0 transition-opacity duration-500 group-hover:opacity-40"></span>
+              <span className="absolute -bottom-2 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-virtuo-orange-origin/0 via-[#ff8f47]/100 to-[#ff8f47]/0 transition-opacity duration-500 group-hover:opacity-40"></span>
             </div>
           </div>
           <SignUpForm />

@@ -5,7 +5,7 @@ const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="h-full">
       <Navbar requireLogin={false} />
-      <main className="bg-virtuo-white-origin h-full dark:bg-[#040404]">
+      <main className="dark:bg-virtuo-black-two h-full bg-virtuo-white-origin">
         {children}
       </main>
       <Footer />

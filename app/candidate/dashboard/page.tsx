@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { cn, candidateDashboardData } from "@/lib/utils";
-import { DataTable } from "./_components/data-table";
+import { DataTable } from "@/components/data-table";
 import { columns, payments } from "./_components/column";
 
 const Page = () => {
@@ -53,10 +53,10 @@ const Page = () => {
             <p>{data.label}</p>
           </div>
         ))}
-        <div className="col-span-4 row-span-1 row-start-4 rounded-md bg-virtuo-gray2 px-6 py-3 dark:bg-virtuo-black-one lg:col-span-1 lg:row-span-2 lg:row-start-1">
+        <div className="col-span-4 row-span-1 row-start-4 rounded-md bg-virtuo-gray2 px-6 pb-3 pt-8 dark:bg-virtuo-black-one lg:col-span-1 lg:row-span-2 lg:row-start-1">
           <h1 className="text-lg">Scheduled Interview</h1>
           {Array.from({ length: 3 }).map((_, index) => (
-            <div className="my-4 flex items-center" key={index}>
+            <div className="my-6 flex items-center" key={index}>
               <Image
                 src="/assets/backgrounds/test_candidate.png"
                 alt="candidate education"

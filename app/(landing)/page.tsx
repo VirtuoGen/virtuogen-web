@@ -122,7 +122,7 @@ export default function Home() {
         </section>
       </Reveal>
       <Reveal>
-        <section className="relative mx-auto mb-20 w-[90%] max-w-[1600px] items-center justify-center space-y-6">
+        <section className="relative mx-auto mb-20 flex w-[90%] max-w-[1600px] flex-col items-center justify-center space-y-6">
           <div className="flex flex-col whitespace-nowrap text-center text-3xl font-medium md:text-5xl">
             <p className="font-dmsans">
               Facilitating{" "}

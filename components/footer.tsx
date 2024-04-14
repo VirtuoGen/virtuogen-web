@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 const Footer = () => {
   return (
-    <footer className="z-50 flex w-full flex-col justify-center bg-gradient-to-r from-[#FFE6D5] via-virtuo-white-origin to-[#FFB88A] px-20 dark:from-[#1A1A1A] dark:via-[#3B3B3B] dark:to-[#1B1B1B]">
+    <footer className="z-50 flex w-full flex-col justify-center bg-gradient-to-r from-[#FFE6D5] via-virtuo-white-origin to-[#FFB88A] px-20 dark:from-virtuo-black-one dark:via-[#3B3B3B] dark:to-[#1B1B1B]">
       <div className="mx-auto my-10 flex w-full max-w-[1600px] flex-col justify-center space-y-10">
         <Logo classname="mx-auto md:mx-0" />
 
@@ -25,7 +25,7 @@ const Footer = () => {
                       key={index}
                       href={link.href}
                       className={cn(
-                        "hover:text-unloqen-purple-origin text-muted-foreground transition-all duration-300 hover:scale-105 hover:underline",
+                        "hover:text-virtuo-purple-origin text-muted-foreground transition-all duration-300 hover:scale-105 hover:underline",
                         link.title === "Docs" && "flex items-center",
                       )}
                       target="#"
@@ -64,7 +64,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-unloqen-black-one dark:bg-unloqen-white-origin/40 my-2 h-[0.5px] w-full" />
+      <div className="my-2 h-[0.5px] w-full bg-virtuo-black-one dark:bg-virtuo-white-origin/40" />
       <div className="z-50 mx-auto flex w-full max-w-[1600px] flex-col items-center justify-between md:flex-row">
         <p className="whitespace-nowrap text-center text-sm dark:text-virtuo-white-origin/50">
           VirtuoGen, Inc. @2023 All rights reserved

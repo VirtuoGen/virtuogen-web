@@ -70,6 +70,7 @@ const config = {
           black: {
             one: "#1A1A1A",
             origin: "#000000",
+            two: "#040404",
           },
           white: {
             card: "#FFFCFA",

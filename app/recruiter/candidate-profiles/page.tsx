@@ -1,5 +1,5 @@
 import { columns, payments } from "./_components/column";
-import { DataTable } from "./_components/data-table";
+import { DataTable } from "@/components/data-table";
 
 const Page = () => {
   return (

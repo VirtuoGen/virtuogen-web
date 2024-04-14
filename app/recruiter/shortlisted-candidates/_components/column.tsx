@@ -68,7 +68,7 @@ export const columns: ColumnDef<Payment>[] = [
               variant="outline"
               className="flex h-1/2 items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
             >
-              <span className="hidden md:block">Schedule an interview</span>
+              <span>Schedule an interview</span>
             </Button>
           </Link>
           <Link href={row.original.mail} target="_blank">
@@ -77,7 +77,7 @@ export const columns: ColumnDef<Payment>[] = [
               className="flex h-1/2 items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
             >
               <Mails className="size-4" />
-              <span className="hidden md:block">Message</span>
+              <span>Message</span>
             </Button>
           </Link>
         </div>

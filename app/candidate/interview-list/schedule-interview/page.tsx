@@ -103,14 +103,14 @@ const Page = () => {
               className="flex h-[40px] items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
             >
               <Zap className="size-5" fill="white" />
-              <span className="hidden md:block">Accept</span>
+              <span>Accept</span>
             </Button>
             <Button
               variant="outline"
               className="flex h-[40px] items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
             >
               <CalendarDays className="size-5" />
-              <span className="hidden md:block">Re-schedule</span>
+              <span>Re-schedule</span>
             </Button>
           </div>
 

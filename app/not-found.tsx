@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const NotFound = () => {
   return (
-    <div className="bg-virtuo-white-origin relative flex h-screen w-full overflow-hidden rounded-md antialiased dark:bg-[#040404] md:items-center md:justify-center">
+    <div className="dark:bg-virtuo-black-two relative flex h-screen w-full overflow-hidden rounded-md bg-virtuo-white-origin antialiased md:items-center md:justify-center">
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:29px_34px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,#000_70%,transparent_100%)]" />
       <Spotlight
         className="-top-40 left-0 md:-top-20 md:left-60"
@@ -18,7 +18,7 @@ const NotFound = () => {
         <Button
           variant="outline"
           size="lg"
-          className="hover:text-virtuo-white-origin mx-auto rounded-lg text-base transition-all duration-500 hover:bg-accent-foreground dark:bg-secondary dark:hover:bg-secondary/70"
+          className="mx-auto rounded-lg text-base transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:bg-secondary dark:hover:bg-secondary/70"
         >
           <Link href="/" className="mx-auto">
             Go back to Home

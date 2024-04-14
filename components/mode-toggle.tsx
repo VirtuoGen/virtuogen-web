@@ -22,14 +22,17 @@ export function ModeToggle() {
         <Button
           variant="outline"
           size="icon"
-          className="transition-all duration-500 hover:bg-virtuo-black-origin hover:text-virtuo-white-origin dark:bg-[#040404] dark:hover:bg-accent"
+          className="dark:bg-virtuo-black-two transition-all duration-500 hover:bg-virtuo-black-origin hover:text-virtuo-white-origin dark:hover:bg-accent"
         >
           <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 dark:-rotate-90 dark:scale-0" />
           <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="mt-1 dark:bg-[#040404]">
+      <DropdownMenuContent
+        align="end"
+        className="dark:bg-virtuo-black-two mt-1"
+      >
         <DropdownMenuItem onClick={() => setTheme("light")}>
           Light
         </DropdownMenuItem>

@@ -17,7 +17,7 @@ export function CardPattern({ mouseX, mouseY, randomString }: any) {
         className="absolute inset-0 rounded-2xl opacity-0 mix-blend-overlay group-hover/card:opacity-100"
         style={style}
       >
-        <p className="text-virtuo-white-origin absolute inset-x-0 h-full overflow-hidden whitespace-pre-wrap break-words font-mono text-xs font-bold transition duration-500">
+        <p className="absolute inset-x-0 h-full overflow-hidden whitespace-pre-wrap break-words font-mono text-xs font-bold text-virtuo-white-origin transition duration-500">
           {randomString}
         </p>
       </motion.div>

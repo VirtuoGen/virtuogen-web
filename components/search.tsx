@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 
 import { File } from "lucide-react";
 import { useUser } from "@clerk/clerk-react";
-// import { useQuery } from "convex/react";
 
 import {
   CommandDialog,
@@ -16,7 +15,6 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { useSearch } from "@/lib/store/use-search";
-// import { api } from "@/convex/_generated/api";
 
 // TODO to be added from db
 //fake data for search
