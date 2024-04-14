@@ -59,22 +59,22 @@ const recruiterNavLinks: NavLink[] = [
   {
     name: "Dashboard",
     icon: <LayoutDashboard className="w-8 min-w-8" />,
-    href: "dashboard",
+    href: `/recruiter/dashboard`,
   },
   {
-    name: "Job",
+    name: "Jobs Posted",
     icon: <Briefcase className="w-8 min-w-8" />,
-    href: "post-job",
+    href: `/recruiter/jobs-posted`,
   },
   {
     name: "Shortlisted Candidates",
     icon: <Building2 className="w-8 min-w-8" />,
-    href: "shortlisted-candidates",
+    href: `/recruiter/shortlisted-candidates`,
   },
   {
-    name: "Candidate's Profile",
+    name: "Candidate Profiles",
     icon: <FilePenLine className="w-8 min-w-8" />,
-    href: "candidate-profiles",
+    href: `/recruiter/candidate-profiles`,
   },
 ];
 
@@ -82,12 +82,12 @@ const candidateNavLinks: NavLink[] = [
   {
     name: "Dashboard",
     icon: <LayoutDashboard className="w-8 min-w-8" />,
-    href: "your-dashboard",
+    href: "/candidate/dashboard",
   },
   {
     name: "Job Board",
     icon: <Briefcase className="w-8 min-w-8" />,
-    href: "jobs-board",
+    href: "/candidate/jobs-board",
   },
   { name: "Applications", icon: <Building2 className="w-8 min-w-8" /> },
   {
@@ -212,6 +212,7 @@ const NavigationLink = ({
           "text-virtuo-orange-origin dark:text-virtuo-orange-origin",
       )}
       {...rest}
+      replace
     >
       {children}
       <p

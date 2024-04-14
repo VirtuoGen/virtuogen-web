@@ -7,8 +7,11 @@ import { Button } from "@/components/ui/button";
 import { useSearch } from "@/lib/store/use-search";
 import { useUserType } from "@/lib/store/use-user-type";
 import { ModeToggle } from "./mode-toggle";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
+  const router = useRouter();
+
   const search = useSearch();
   const typeOfUser = useUserType((state) => state.userType);
 
@@ -28,6 +31,7 @@ const Header = () => {
           <Button
             variant="outline"
             className="flex h-1/2 items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
+            onClick={() => router.replace("/recruiter/post-job")}
           >
             <PlusIcon className="size-4" />
             <span className="hidden md:block">Post a Job</span>

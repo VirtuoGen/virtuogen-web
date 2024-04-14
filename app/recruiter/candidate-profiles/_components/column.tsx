@@ -23,7 +23,7 @@ export const payments: Payment[] = [
     jobtitle: "Front-end Dev",
     field: ["Developer"],
     performance: "Good",
-    result: "https://google.com",
+    result: "/recruiter/candidate-result",
   },
   {
     id: "489e1d42",
@@ -31,7 +31,7 @@ export const payments: Payment[] = [
     jobtitle: "Full-stack Dev",
     field: ["Developer", "Product"],
     performance: "Average",
-    result: "https://google.com",
+    result: "/recruiter/candidate-result",
   },
   // ...
 ];
@@ -84,7 +84,12 @@ export const columns: ColumnDef<Payment>[] = [
     header: "Result",
     cell: ({ row }) => {
       return (
-        <Link href={row.original.result} className="underline" target="_blank">
+        <Link
+          href={row.original.result}
+          className="underline"
+          target="_blank"
+          replace
+        >
           Click here
         </Link>
       );

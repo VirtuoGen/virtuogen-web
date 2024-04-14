@@ -75,103 +75,105 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
   return (
     <nav
       className={cn(
-        "fixed top-0 z-50 flex w-full max-w-[1600px] items-center px-6 py-3",
+        "fixed top-0 z-50 flex w-full items-center px-6 py-3",
         scrolled &&
           "border-b bg-virtuo-white-origin shadow-sm dark:bg-[#040404]",
       )}
       ref={menuRef}
     >
-      <Link href="/">
-        <Logo classname="mr-16 hidden" />
-      </Link>
-      <button
-        className="block text-2xl text-virtuo-gray dark:text-virtuo-white-origin md:hidden"
-        tabIndex={0}
-        style={{ transform: "none" }}
-        onClick={() => setOpen((p) => !p)}
-      >
-        <svg
-          stroke="currentColor"
-          fill="none"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+      <div className="mx-auto flex w-full max-w-[1600px]">
+        <Link href="/" replace>
+          <Logo classname="mr-16 hidden" />
+        </Link>
+        <button
+          className="block text-2xl text-virtuo-gray dark:text-virtuo-white-origin md:hidden"
+          tabIndex={0}
+          style={{ transform: "none" }}
+          onClick={() => setOpen((p) => !p)}
         >
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-      <div className="hidden space-x-6 whitespace-nowrap text-lg md:flex">
-        {navLinks.map((link, index) => (
-          <Link
-            key={index}
-            className="transition-all duration-300 hover:scale-105 hover:text-virtuo-orange-origin"
-            href={link.href}
+          <svg
+            stroke="currentColor"
+            fill="none"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            {link.title}
-          </Link>
-        ))}
-      </div>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            className="absolute left-0 right-0 top-full flex origin-top flex-col gap-4 bg-virtuo-white-origin p-4 shadow-lg"
-            variants={menuVars}
-            animate="animate"
-            initial="initial"
-            exit="exit"
-          >
-            <motion.div
-              className="flex h-full flex-col items-start gap-2 overflow-hidden text-lg font-medium"
-              variants={containerVars}
-              initial="initial"
-              animate="open"
-              exit="initial"
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <div className="hidden space-x-6 whitespace-nowrap text-lg md:flex">
+          {navLinks.map((link, index) => (
+            <Link
+              key={index}
+              className="transition-all duration-300 hover:scale-105 hover:text-virtuo-orange-origin"
+              href={link.href}
             >
-              {navLinks.map((link, index) => {
-                return (
-                  <MobileNavLink
-                    key={index}
-                    title={link.title}
-                    href={link.href}
-                  />
-                );
-              })}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <div className="flex w-full items-center  justify-end gap-x-2 md:ml-auto">
-        {!isLoaded && <Spinner />}
-        {!userId && requireLogin && (
-          <>
-            <Link href="/login">
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-full text-base transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:bg-secondary dark:hover:bg-virtuo-orange-hover"
-              >
-                Log in
-              </Button>
+              {link.title}
             </Link>
-          </>
-        )}
-        {userId && isLoaded && requireLogin && (
-          <>
-            <Button variant="ghost" size="sm" asChild>
-              <Link href="/recruiter/dashboard">Dashboard</Link>
-            </Button>
-            <UserButton afterSignOutUrl="/" />
-          </>
-        )}
-        <ModeToggle />
+          ))}
+        </div>
+
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              className="absolute left-0 right-0 top-full flex origin-top flex-col gap-4 bg-virtuo-white-origin p-4 shadow-lg"
+              variants={menuVars}
+              animate="animate"
+              initial="initial"
+              exit="exit"
+            >
+              <motion.div
+                className="flex h-full flex-col items-start gap-2 overflow-hidden text-lg font-medium"
+                variants={containerVars}
+                initial="initial"
+                animate="open"
+                exit="initial"
+              >
+                {navLinks.map((link, index) => {
+                  return (
+                    <MobileNavLink
+                      key={index}
+                      title={link.title}
+                      href={link.href}
+                    />
+                  );
+                })}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div className="flex w-full items-center  justify-end gap-x-2 md:ml-auto">
+          {!isLoaded && <Spinner />}
+          {!userId && requireLogin && (
+            <>
+              <Link href="/login" replace>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full text-base transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:bg-secondary dark:hover:bg-virtuo-orange-hover"
+                >
+                  Log in
+                </Button>
+              </Link>
+            </>
+          )}
+          {userId && isLoaded && requireLogin && (
+            <>
+              <Button variant="ghost" size="sm" asChild>
+                <Link href="/recruiter/dashboard">Dashboard</Link>
+              </Button>
+              <UserButton afterSignOutUrl="/" />
+            </>
+          )}
+          <ModeToggle />
+        </div>
       </div>
     </nav>
   );

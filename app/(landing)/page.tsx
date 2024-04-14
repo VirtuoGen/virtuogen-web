@@ -18,7 +18,7 @@ export default function Home() {
       <Cursor />
       <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:29px_34px]" />
       <Reveal>
-        <section className="relative mx-auto flex h-screen max-h-[1110px] max-w-[1600px] flex-col items-center justify-center space-y-8 text-virtuo-black-origin dark:text-virtuo-white-origin">
+        <section className="relative mx-auto mt-10 flex h-screen max-h-[1110px] max-w-[1600px] flex-col items-center justify-center space-y-8 text-virtuo-black-origin dark:text-virtuo-white-origin md:mt-20 lg:mt-0">
           <div className="flex flex-col whitespace-nowrap text-center text-3xl font-medium md:text-5xl">
             <p className="font-dmsans">
               Empowering Your Talent
@@ -68,7 +68,7 @@ export default function Home() {
         </section>
       </Reveal>
       <Reveal>
-        <section className="mx-auto my-2 flex h-fit min-h-[1100px] max-w-[1600px] items-center justify-center">
+        <section className="mx-auto my-20 flex h-fit max-h-[1100px] max-w-[1600px] items-center justify-center">
           <div className="mx-auto h-[80vh] max-h-[700px] w-[90%] rounded-3xl bg-gradient-to-tr from-[#FFF5EE]/100 via-[#FFFFFF]/100 to-[#FFF5EE]/100 dark:from-[#3B3B3B]/15 dark:via-[#050505]/80 dark:to-virtuo-black-one/50">
             <div className={`${styles.introduction}`}>
               <div className="relative flex size-full flex-col items-center justify-start rounded-3xl bg-gradient-to-tr">
@@ -102,7 +102,7 @@ export default function Home() {
         </section>
       </Reveal>
       <Reveal>
-        <section className="relative mx-auto mb-40 mt-2 flex h-fit w-[80%] max-w-[1600px] flex-col items-center justify-center space-x-6 space-y-6 bg-transparent sm:space-x-0 md:w-full lg:w-[90%] lg:flex-row lg:space-x-20 lg:space-y-0">
+        <section className="relative mx-auto mb-20 mt-2 flex h-fit w-[80%] max-w-[1600px] flex-col items-center justify-center space-x-6 space-y-6 bg-transparent sm:space-x-0 md:w-full lg:w-[90%] lg:flex-row lg:space-x-20 lg:space-y-0">
           <div className="flex flex-col whitespace-nowrap text-center text-3xl font-medium md:text-5xl">
             <p className="font-dmsans">
               Your Personal
@@ -122,7 +122,7 @@ export default function Home() {
         </section>
       </Reveal>
       <Reveal>
-        <section className="relative mx-auto mb-40 w-[90%] max-w-[1600px] items-center justify-center space-y-6">
+        <section className="relative mx-auto mb-20 w-[90%] max-w-[1600px] items-center justify-center space-y-6">
           <div className="flex flex-col whitespace-nowrap text-center text-3xl font-medium md:text-5xl">
             <p className="font-dmsans">
               Facilitating{" "}
