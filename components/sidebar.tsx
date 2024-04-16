@@ -67,7 +67,7 @@ const recruiterNavLinks: NavLink[] = [
     href: `/recruiter/jobs-posted`,
   },
   {
-    name: "Shortlisted Candidates",
+    name: "Shortlisted Profiles",
     icon: <Building2 className="w-8 min-w-8" />,
     href: `/recruiter/shortlisted-candidates`,
   },
@@ -89,10 +89,10 @@ const candidateNavLinks: NavLink[] = [
     icon: <Briefcase className="w-8 min-w-8" />,
     href: "/candidate/jobs-board",
   },
-  { name: "Applications", icon: <Building2 className="w-8 min-w-8" /> },
   {
     name: "Tasks",
     icon: <NotebookPen className="w-8 min-w-8" />,
+    href: "/candidate/interview-list",
   },
 ];
 
@@ -168,7 +168,7 @@ const Sidebar = () => {
                 </NavigationLink>
               ))
             : candidateNavLinks.map((value, index) => (
-                <NavigationLink name={value.name} key={index}>
+                <NavigationLink name={value.name} key={index} href={value.href}>
                   {value.icon}
                 </NavigationLink>
               ))}

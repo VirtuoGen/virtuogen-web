@@ -1,4 +1,6 @@
-import { authMiddleware } from "@clerk/nextjs";
+import { NextResponse } from "next/server";
+
+import { authMiddleware, redirectToSignIn } from "@clerk/nextjs";
 
 export default authMiddleware({
   // Routes that can be accessed while signed out
@@ -10,10 +12,19 @@ export default authMiddleware({
     "/terms-and-conditions",
     "/pricing",
     "/login",
+    "/test",
+    "/api/uploadthing",
   ],
-  // Routes that can always be accessed, and have
-  // no authentication information
-  //   ignoredRoutes: ["/hello"],
+  afterAuth(auth, req, evt) {
+    if (!auth.userId && !auth.isPublicRoute) {
+      return redirectToSignIn({ returnBackUrl: req.url });
+    }
+    if (auth.userId && req.nextUrl.pathname == "/login") {
+      return NextResponse.redirect("http://localhost:3000/recruiter/dashboard");
+    }
+    // Allow users visiting public routes to access them
+    return NextResponse.next();
+  },
 });
 
 export const config = {

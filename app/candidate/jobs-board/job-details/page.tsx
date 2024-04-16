@@ -1,16 +1,9 @@
 import Image from "next/image";
 
-import {
-  Banknote,
-  Briefcase,
-  CalendarDays,
-  Clock,
-  Hash,
-  Zap,
-} from "lucide-react";
+import { Banknote, Briefcase, CalendarDays, Clock, Hash } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import UploadButton from "../_components/UploadButton";
 
 const Page = () => {
   return (
@@ -34,16 +27,10 @@ const Page = () => {
             <h1>UI/UX Designer</h1>
             <li>Arlington, VA, USA</li>
           </div>
-          <Button
-            variant="outline"
-            className="ml-auto flex h-1/2 items-center justify-center space-x-1 px-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
-          >
-            <Zap className="size-5" />
-            <span className="ml-3">Apply</span>
-          </Button>
+          <UploadButton />
         </div>
         <Separator className="my-10" />
-        <div className="flex justify-between px-10 text-virtuo-gray dark:text-white/[0.6]">
+        <div className="flex justify-between px-4 text-virtuo-gray dark:text-white/[0.6] lg:px-10">
           {[
             {
               icon: <Banknote className="size-5" />,

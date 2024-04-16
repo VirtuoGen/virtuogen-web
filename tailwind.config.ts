@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import { withUt } from "uploadthing/tw";
 const { fontFamily } = require("tailwindcss/defaultTheme");
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
@@ -130,4 +130,4 @@ function addVariablesForColors({ addBase, theme }: any) {
   });
 }
 
-export default config;
+export default withUt(config);

@@ -1,5 +1,5 @@
-import JobCards from "./_components/jobCards";
 import { companyData } from "@/lib/utils";
+import JobCards from "./_components/jobCards";
 
 const Page = () => {
   return (

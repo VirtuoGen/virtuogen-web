@@ -9,8 +9,8 @@ import Cursor from "./_components/cursor";
 import Bento from "./_components/bento";
 import { Reveal } from "./_components/reveal";
 import styles from "./_components/landing.module.css";
-import { Button } from "@/components/ui/button";
 import { StickyScroll } from "./_components/sticky-scroll-reveal";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (

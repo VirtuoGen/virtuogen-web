@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { Bell, PlusIcon, Search } from "lucide-react";
 
 import Logo from "@/components/logo";
@@ -7,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { useSearch } from "@/lib/store/use-search";
 import { useUserType } from "@/lib/store/use-user-type";
 import { ModeToggle } from "./mode-toggle";
-import { useRouter } from "next/navigation";
 
 const Header = () => {
   const router = useRouter();

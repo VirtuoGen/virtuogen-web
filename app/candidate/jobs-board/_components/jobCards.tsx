@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Zap } from "lucide-react";
 
@@ -53,13 +54,15 @@ const JobCards = (prop: JobCardsProps) => {
       </CardHeader>
       <CardContent className="flex justify-between">
         <h1 className="text-2xl">{prop.salary}</h1>
-        <Button
-          className="dark:bg-virtuo-black-two bg-black text-white hover:underline dark:hover:bg-accent"
-          size="lg"
-        >
-          <Zap fill="#FF802F" color="#FF802F" className="mr-2 size-4" />
-          Apply
-        </Button>
+        <Link href="/candidate/jobs-board/job-details">
+          <Button
+            className="bg-black text-white hover:underline dark:bg-virtuo-black-two dark:hover:bg-accent"
+            size="lg"
+          >
+            <Zap fill="#FF802F" color="#FF802F" className="mr-2 size-4" />
+            Apply
+          </Button>
+        </Link>
       </CardContent>
     </Card>
   );

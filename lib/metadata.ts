@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export function constructMetaData({
   title = "VirtuoG",
-  description = "VirtuoGen",
+  description = "Your AI interview platform to ease your hiring process.",
   image = "/thumbnail.png", // put a thumbnail.png in public folder, resolution 1200x630
   authors = { name: "VirtuoGen team", url: "https://virtuogen.in/" },
   creator = "VirtuoGen team̉",

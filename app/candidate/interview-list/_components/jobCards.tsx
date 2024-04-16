@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { CalendarDays } from "lucide-react";
 
@@ -53,13 +54,15 @@ const JobCards = (prop: JobCardsProps) => {
       </CardHeader>
       <CardContent className="flex justify-between">
         <h1 className="text-2xl">{prop.salary}</h1>
-        <Button
-          className="dark:bg-virtuo-black-two bg-black text-white hover:underline dark:hover:bg-accent"
-          size="lg"
-        >
-          <CalendarDays color="#FF802F" className="mr-2 size-4" />
-          Schedule Now
-        </Button>
+        <Link href="/candidate/interview-list/schedule-interview">
+          <Button
+            className="bg-black text-white hover:underline dark:bg-virtuo-black-two dark:hover:bg-accent"
+            size="lg"
+          >
+            <CalendarDays color="#FF802F" className="mr-2 size-4" />
+            Schedule Now
+          </Button>
+        </Link>
       </CardContent>
     </Card>
   );

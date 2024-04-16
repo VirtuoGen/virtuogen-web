@@ -9,6 +9,118 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+// Recruiter schema
+model Recruiter {
+  id          String         @id @default(cuid())
+  firstName   String
+  lastName    String
+  email       String      @unique
+  companyName String
+  jobs        Job[]       // One-to-many relationship to Job
+  interviews  Interview[]
+}
+
+// Candidate schema
+model Candidate {
+  id             String                @id @default(cuid())
+  firstName      String
+  lastName       String
+  email          String             @unique
+  phone          String
+  alternatePhone String?
+  dateOfBirth    DateTime
+  isApproved     Boolean            @default(false) // Indicates if the candidate is approved by the recruiter
+  shortlisted    ShortlistedCandidate[]
+  shortlistedId  Int?
+  jobs           Job[]              @relation("AppliedJob")
+  interviews     Interview[]        @relation("CandidateInterviews")
+  files          File[]
+}
+
+// ShortlistedCandidate schema
+model ShortlistedCandidate {
+  id          String       @id @default(cuid())
+candidate     Candidate[]
+  job         Job       @relation(fields: [jobId], references: [id])
+  jobId       String
+}
+
+enum UploadStatus {
+  PENDING
+  PROCESSING
+  FAILED
+  SUCCESS
+}
+
+model File {
+  id              String @id @default(cuid())
+  name            String?
+
+  uploadStatus    UploadStatus @default(PENDING)
+
+  resumeUrl       String
+  key             String
+  coverLetterUrl  String?
+  expectedSalary  String?
+  email           String
+  phone           String
+  alternatePhone  String?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  Candidate       Candidate?    @relation(fields: [userId], references: [id])
+  Job             Job?         @relation(fields: [jobId], references: [id])
+  userId          String?
+  jobId           String?
+}
+
+// Job schema
+model Job {
+  id                    String         @id @default(cuid())
+  jobTitle              String
+  jobSummary            String
+  responsibilites       String?
+  qualifications        String
+  benefits              String?
+  companyName           String
+  comapnyLogo           String
+  companyOverview       String?
+  location              String
+  applicationDeadline   DateTime?
+  openings              Int
+  department            String?
+  employmentType        String?
+  salaryRange           String?
+  additionalInfo        String?
+  postedBy              Recruiter   @relation(fields: [recruiterId], references: [id])
+  recruiterId           String      // Foreign key referencing Recruiter
+  candidates            Candidate[] @relation("AppliedJob")
+  shortlistedCandidates ShortlistedCandidate[] // One-to-many relationship with ShortlistedCandidate
+  interviews            Interview[] // One-to-many relationship to Interview
+  resumes               File[]
+}
+
+// Enumeration for interview status
+enum InterviewStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+// Interview schema
+model Interview {
+  id          String             @id @default(cuid())
+  date        DateTime
+  duration    Int             // Duration of the interview in minutes
+  candidates  Candidate[]     @relation("CandidateInterviews") // Add the opposite relation field
+  jobId       String             // Foreign key referencing Job
+  job         Job             @relation(fields: [jobId], references: [id])
+  recruiter   Recruiter       @relation(fields: [recruiterId], references: [id])
+  recruiterId String             // Foreign key referencing Recruiter
+  performance String?         // Performance analysis by AI
+  status      InterviewStatus @default(PENDING)
 }

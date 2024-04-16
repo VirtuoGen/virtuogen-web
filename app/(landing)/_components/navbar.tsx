@@ -77,11 +77,11 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
       className={cn(
         "fixed top-0 z-50 flex w-full items-center px-6 py-3",
         scrolled &&
-          "dark:bg-virtuo-black-two border-b bg-virtuo-white-origin shadow-sm",
+          "border-b bg-virtuo-white-origin shadow-sm dark:bg-virtuo-black-two",
       )}
       ref={menuRef}
     >
-      <div className="mx-auto flex w-full max-w-[1600px]">
+      <div className="mx-auto flex w-full max-w-[1600px] items-center">
         <Link href="/" replace>
           <Logo classname="mr-16 hidden" />
         </Link>

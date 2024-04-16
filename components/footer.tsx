@@ -5,8 +5,8 @@ import { Instagram, LinkedinIcon, SquareArrowOutUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/logo";
 import { FooterLinks } from "@/lib/utils";
-import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
+import { Input } from "./ui/input";
 
 const Footer = () => {
   return (
@@ -25,7 +25,7 @@ const Footer = () => {
                       key={index}
                       href={link.href}
                       className={cn(
-                        "hover:text-virtuo-purple-origin text-muted-foreground transition-all duration-300 hover:scale-105 hover:underline",
+                        "text-muted-foreground transition-all duration-500 hover:scale-105 hover:text-virtuo-orange-origin",
                         link.title === "Docs" && "flex items-center",
                       )}
                       target="#"

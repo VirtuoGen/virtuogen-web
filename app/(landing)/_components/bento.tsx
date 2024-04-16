@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
+import { motion } from "framer-motion";
 import { useMotionValue } from "framer-motion";
 
 import { CardPattern, generateRandomString } from "./CardPattern";
@@ -201,8 +201,8 @@ const Bento = () => {
             <Image
               src={bento[5].imageUrl}
               alt="hi"
-              width={200}
-              height={200}
+              width={900}
+              height={900}
               className="z-40 mx-auto h-[80%] w-[80%] transition-all duration-500 hover:scale-105"
             />
           </div>

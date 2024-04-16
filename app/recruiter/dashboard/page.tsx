@@ -3,8 +3,8 @@ import Image from "next/image";
 import { PlusIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { cn, dashboardData } from "@/lib/utils";
 import { DataTable } from "@/components/data-table";
+import { cn, dashboardData } from "@/lib/utils";
 import { columns, payments } from "./_components/column";
 
 const Page = () => {

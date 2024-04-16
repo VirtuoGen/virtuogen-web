@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -15,43 +17,18 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useRouter } from "next/navigation";
-
-const formSchema = z.object({
-  // Job Title
-  jobTitle: z.string().trim().min(1, "Job title is required"),
-  // Job Summary
-  jobSummary: z.string().trim().min(1, "Job summary is required"),
-  // Responsibilities & Duties
-  responsibilities: z.string().trim().min(1, "Responsibilities are required"),
-  // Qualifications & Requirements
-  qualifications: z.string().trim().min(1, "Qualifications are required"),
-  // Benefits & Perks
-  benefits: z.string().trim().optional(),
-  // Company Information
-  companyName: z.string().trim().min(1, "Company name is required"),
-  companyLogo: z.string().trim().url("Invalid company logo URL").optional(), // Optional URL validation
-  companyOverview: z.string().trim().min(1, "Company overview is required"),
-  // Additional Information
-  location: z
-    .string()
-    .trim()
-    .min(1, "Job location is required")
-    .or(z.literal("Remote").optional()), // Allow "Remote" as a valid location
-  applicationDeadline: z.string().trim().optional(), // Optional application deadline
-  opening: z.number().int().positive(),
-  // Additional details you might want to include (optional)
-  department: z.string().trim().optional(),
-  employmentType: z.string().trim().optional(), // Full-time, Part-time, Contract, etc.
-  salaryRange: z.string().trim().optional(),
-  additionalInfo: z.string().optional(),
-});
+import { useToast } from "@/components/ui/use-toast";
+import { ToastAction } from "@/components/ui/toast";
+import { Spinner } from "@/components/spinner";
+import { recruiterJobFormSchema } from "@/lib/formSchemas";
+import { recruiterJobSubmitForm } from "@/actions/recruiterJobSubmi";
 
 const JobForm = () => {
   const router = useRouter();
+  const { toast } = useToast();
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof recruiterJobFormSchema>>({
+    resolver: zodResolver(recruiterJobFormSchema),
     defaultValues: {
       jobTitle: "",
       jobSummary: "",
@@ -63,7 +40,7 @@ const JobForm = () => {
       companyOverview: "",
       location: "",
       applicationDeadline: "",
-      opening: 1,
+      opening: "1",
       department: "",
       employmentType: "",
       salaryRange: "",
@@ -72,11 +49,34 @@ const JobForm = () => {
   });
 
   // Submit handler for form:
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
+  async function onSubmit(values: z.infer<typeof recruiterJobFormSchema>) {
     // ✅ This will be type-safe and validated.
-    router.replace("/recruiter/jobs-posted");
-    console.log(values);
+    await recruiterJobSubmitForm(values)
+      .then(() => {
+        toast({
+          variant: "default",
+          title: "Job submitted successfully!",
+          description: "Redirecting you to Job Board...",
+          action: (
+            <ToastAction altText="Try again">
+              <Spinner />
+            </ToastAction>
+          ),
+        });
+      })
+      .then(() =>
+        setTimeout(() => {
+          router.push("/recruiter/jobs-posted");
+        }, 2000),
+      )
+      .catch((error) => {
+        toast({
+          variant: "destructive",
+          title: "Job submission failed!",
+          description: `${error.message}`,
+          action: <ToastAction altText="Try again">Try again</ToastAction>,
+        });
+      });
   }
 
   return (
@@ -93,7 +93,11 @@ const JobForm = () => {
             <FormItem className="">
               <FormLabel>Job Title</FormLabel>
               <FormControl>
-                <Input placeholder="Job Title" {...field} />
+                <Input
+                  placeholder="Job Title"
+                  {...field}
+                  className="dark:bg-virtuo-black-origin"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -106,7 +110,11 @@ const JobForm = () => {
             <FormItem className="">
               <FormLabel>Job Summary</FormLabel>
               <FormControl>
-                <Textarea placeholder="Summary of the job" {...field} />
+                <Textarea
+                  placeholder="Summary of the job"
+                  {...field}
+                  className="dark:bg-virtuo-black-origin"
+                />
               </FormControl>
 
               <FormMessage />
@@ -120,7 +128,11 @@ const JobForm = () => {
             <FormItem className="">
               <FormLabel>Responsibilities</FormLabel>
               <FormControl>
-                <Input placeholder="Responsibilities for this job" {...field} />
+                <Input
+                  placeholder="Responsibilities for this job"
+                  {...field}
+                  className="dark:bg-virtuo-black-origin"
+                />
               </FormControl>
 
               <FormMessage />
@@ -137,6 +149,7 @@ const JobForm = () => {
                 <Input
                   placeholder="Qualifications required for this job"
                   {...field}
+                  className="dark:bg-virtuo-black-origin"
                 />
               </FormControl>
 
@@ -151,7 +164,11 @@ const JobForm = () => {
             <FormItem className="">
               <FormLabel>Benefits & Perks</FormLabel>
               <FormControl>
-                <Input placeholder="Perks of working" {...field} />
+                <Input
+                  placeholder="Perks of working"
+                  {...field}
+                  className="dark:bg-virtuo-black-origin"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -164,7 +181,11 @@ const JobForm = () => {
             <FormItem className="">
               <FormLabel>Company Name</FormLabel>
               <FormControl>
-                <Input placeholder="Name of the Company" {...field} />
+                <Input
+                  placeholder="Name of the Company"
+                  {...field}
+                  className="dark:bg-virtuo-black-origin"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -177,7 +198,11 @@ const JobForm = () => {
             <FormItem className="">
               <FormLabel>Company Logo Url</FormLabel>
               <FormControl>
-                <Input placeholder="Company's Url" {...field} />
+                <Input
+                  placeholder="Company's Url"
+                  {...field}
+                  className="dark:bg-virtuo-black-origin"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -190,7 +215,11 @@ const JobForm = () => {
             <FormItem className="">
               <FormLabel>Company Overview</FormLabel>
               <FormControl>
-                <Textarea placeholder="Overview of the company" {...field} />
+                <Textarea
+                  placeholder="Overview of the company"
+                  {...field}
+                  className="dark:bg-virtuo-black-origin"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -203,7 +232,11 @@ const JobForm = () => {
             <FormItem className="">
               <FormLabel>Job Location</FormLabel>
               <FormControl>
-                <Input placeholder="Physical or Remote" {...field} />
+                <Input
+                  placeholder="Physical or Remote"
+                  {...field}
+                  className="dark:bg-virtuo-black-origin"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -220,7 +253,7 @@ const JobForm = () => {
                   <Input
                     placeholder="Last date to apply"
                     type="date"
-                    className="w-full"
+                    className="w-full dark:bg-virtuo-black-origin"
                     {...field}
                   />
                 </FormControl>
@@ -238,7 +271,7 @@ const JobForm = () => {
                   <Input
                     placeholder="Last date to apply"
                     type="number"
-                    className="w-full"
+                    className="w-full dark:bg-virtuo-black-origin"
                     {...field}
                   />
                 </FormControl>
@@ -254,7 +287,11 @@ const JobForm = () => {
             <FormItem className="">
               <FormLabel>Department</FormLabel>
               <FormControl>
-                <Input placeholder="Department" {...field} />
+                <Input
+                  placeholder="Department"
+                  {...field}
+                  className="dark:bg-virtuo-black-origin"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -270,6 +307,7 @@ const JobForm = () => {
                 <Input
                   placeholder="Full-time, Part-time, Contract or Intern"
                   {...field}
+                  className="dark:bg-virtuo-black-origin"
                 />
               </FormControl>
               <FormMessage />
@@ -283,7 +321,11 @@ const JobForm = () => {
             <FormItem className="">
               <FormLabel>Salary Range</FormLabel>
               <FormControl>
-                <Input placeholder="Salary Range" {...field} />
+                <Input
+                  placeholder="Salary Range"
+                  {...field}
+                  className="dark:bg-virtuo-black-origin"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -299,6 +341,7 @@ const JobForm = () => {
                 <Textarea
                   placeholder="Additional Info on the company"
                   {...field}
+                  className="dark:bg-virtuo-black-origin"
                 />
               </FormControl>
               <FormMessage />
