@@ -23,8 +23,8 @@ export async function submitForm(values: FormValues, fileUrl: FileUrlProps) {
         email: values.email,
         phone: values.phoneNumber,
         alternatePhone: values.alternatePhoneNumber,
-        Candidate: { connect: { id: "clv2qyb1k00012mszbrd07c9l" } },
-        Job: { connect: { id: "clv2qyb1q00032mszfd4v8ib7" } },
+        Candidate: { connect: { id: "clv3cei300001s70w2j6w7k2p" } },
+        Job: { connect: { id: "clv3cei360003s70wg37lgoqq" } },
       },
     });
     console.log("Form submitted successfully!");

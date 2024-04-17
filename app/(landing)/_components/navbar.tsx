@@ -13,6 +13,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/spinner";
 import Logo from "@/components/logo";
+import { useUserType } from "@/lib/store/use-user-type";
 
 const menuVars = {
   initial: {
@@ -56,6 +57,7 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
 
   const { isLoaded, userId, sessionId, getToken } = useAuth();
   const [open, setOpen] = useState(false);
+  const typeOfUser = useUserType((state) => state.userType);
 
   const scrolled = useScrollTop();
 
@@ -167,7 +169,9 @@ const Navbar = ({ requireLogin = true }: { requireLogin?: boolean }) => {
           {userId && isLoaded && requireLogin && (
             <>
               <Button variant="ghost" size="sm" asChild>
-                <Link href="/recruiter/dashboard">Dashboard</Link>
+                <Link href={`/${typeOfUser.toLowerCase()}/dashboard`}>
+                  Dashboard
+                </Link>
               </Button>
               <UserButton afterSignOutUrl="/" />
             </>

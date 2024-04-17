@@ -35,7 +35,7 @@ export async function recruiterJobSubmitForm(values: FormValues) {
         salaryRange: values.salaryRange,
         additionalInfo: values.additionalInfo,
         comapnyLogo: values.companyLogo as string,
-        postedBy: { connect: { id: "clv3e0y7p000020ygjjjerlb6" } },
+        postedBy: { connect: { id: "clv3cei2s0000s70wiyzt3461" } },
       },
     });
     console.log("Form submitted successfully!");

@@ -72,7 +72,7 @@ const Page = () => {
           ))}
         </div>
         <div className="col-span-2 row-span-1 row-start-3 rounded-md bg-virtuo-gray2 px-6 py-3 dark:bg-virtuo-black-one lg:col-span-1 lg:row-span-2 lg:row-start-1">
-          06
+          Analytics:
         </div>
       </div>
       <div className="mx-auto my-6 h-[calc(100vh-30vh)] w-[90%] rounded-xl bg-virtuo-white-card py-6 outline dark:bg-virtuo-black-one dark:outline-none">
