@@ -44,13 +44,18 @@ export const columns: ColumnDef<Payment>[] = [
       const title = row.original.candidateName;
       return (
         <div className="flex items-center justify-center space-x-2 font-medium">
-          <Image
-            alt="candidate icon"
-            className="h-8 w-8 rounded-full"
-            src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ2l0aHViL2ltZ18yWGEydmx6RjVZZXJ6OWhmNVR1eXVGYnNuankifQ"
-            height={32}
-            width={32}
-          />
+          <Link
+            href="http://localhost:3000/recruiter/candidate-profiles/tdashboard"
+            replace
+          >
+            <Image
+              alt="candidate icon"
+              className="h-8 w-8 rounded-full"
+              src="https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ2l0aHViL2ltZ18yWGEydmx6RjVZZXJ6OWhmNVR1eXVGYnNuankifQ"
+              height={32}
+              width={32}
+            />
+          </Link>
           <span>{title}</span>
         </div>
       );

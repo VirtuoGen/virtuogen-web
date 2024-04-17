@@ -1,70 +1,23 @@
 "use client";
+
+import { useState } from "react";
+
 import Image from "next/image";
 
-import {
-  ArrowLeft,
-  ArrowRight,
-  Cake,
-  CircleX,
-  Mail,
-  MapPin,
-  Phone,
-  Zap,
-} from "lucide-react";
-
-import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-
-ChartJS.register(ArcElement, Tooltip, Legend);
+import { ArrowLeft, ArrowRight, Cake, Mail, MapPin, Phone } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { questionData } from "@/lib/utils";
+import Chart from "./_components/chart";
 
 const Page = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
-  let backgroundColor = ["#56C021", "#FF802F", "#0068FE"];
-  let borderColor = ["#56C021", "#FF802F", "#0068FE"];
-
-  // Define the additional colors you want to add
-  const additionalColors = [
-    "#8A2BE2", // Purple
-    "#DAA520", // Goldenrod
-    "#FF69B4", // Hot Pink
-    "#7FFF00", // Chartreuse
-    "#DC143C", // Crimson
-    "#00CED1", // Dark Turquoise
-    "#FFD700", // Gold
-    "#ADFF2F", // Green Yellow
-    "#00FA9A", // Medium Spring Green
-    "#FF6347", // Tomato
-    "#800000", // Maroon
-    "#4682B4", // Steel Blue
-    "#C71585", // Medium Violet Red
-    "#00008B", // Dark Blue
-  ];
-
-  // Add the additional colors to both arrays
-  backgroundColor = backgroundColor.concat(additionalColors);
-  borderColor = borderColor.concat(additionalColors);
-  const scores:any = questionData[questionIndex].scores;
+  const scores: any = questionData[questionIndex].scores;
 
   // Get the keys of the scores object
   const keys = Object.keys(questionData[questionIndex].scores);
 
   // Capitalize the keys and replace underscores with spaces
-  const capitalizedKeys = keys.map((key) => {
-    // Replace underscores with spaces
-    let formattedKey = key.replace(/_/g, " ");
-
-    // Capitalize the first letter of each word in the key
-    formattedKey = formattedKey
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-
-    return formattedKey;
-  });
 
   let list = [];
   for (const key in questionData[questionIndex].scores) {
@@ -76,28 +29,6 @@ const Page = () => {
       list.push(`${formattedKey}: ${scores[key]}`);
     }
   }
-
-  const convertString = (str: string) => {
-    str.replace(/_/g, "");
-
-    let formattedStr = str
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-    return formattedStr;
-  };
-
-  const data = {
-    labels: capitalizedKeys,
-    datasets: [
-      {
-        data: Object.values(questionData[questionIndex].scores),
-        backgroundColor: backgroundColor,
-        borderColor: backgroundColor,
-        borderWidth: 1,
-      },
-    ],
-  };
 
   return (
     <section className="mx-auto flex h-[100vh-20vh] max-h-[1100px] w-screen max-w-[1600px] flex-col overflow-x-hidden">
@@ -152,12 +83,10 @@ const Page = () => {
                   <h1 className="text-lg font-semibold text-virtuo-orange-origin">
                     Scores:
                   </h1>
-                  <p className="text-virtuo-gray-origin text-sm grid grid-cols-2 gap-2">
-                    {
-                      list.map((item, index) => (
-                        <div key={index}>{item}</div>
-                      ))
-                    }
+                  <p className="text-virtuo-gray-origin grid grid-cols-2 gap-2 text-sm">
+                    {list.map((item, index) => (
+                      <span key={index}>{item}</span>
+                    ))}
                   </p>
                 </div>
                 <div>
@@ -179,26 +108,7 @@ const Page = () => {
               </div>
             </div>
             <div className="flex h-fit w-3/5 flex-col items-center justify-evenly">
-              <Doughnut
-                data={data}
-                options={{
-                  responsive: true,
-                  plugins: {
-                    legend: {
-                      position: "left",
-                      labels: {
-                        usePointStyle: true,
-                        pointStyle: "circle",
-                        color: "white",
-                      },
-                    },
-                    title: {
-                      display: true,
-                      text: "Result Analysis",
-                    },
-                  },
-                }}
-              />
+              <Chart />
               <div className="mt-3 flex justify-end space-x-4">
                 {questionIndex !== 0 && (
                   <Button
@@ -223,13 +133,6 @@ const Page = () => {
                   <ArrowRight className="size-5" fill="white" />
                   <span>Next</span>
                 </Button>
-                {/* <Button
-                  variant="outline"
-                  className="flex h-[40px] items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
-                >
-                  <CircleX className="size-5" />
-                  <span>Reject</span>
-                </Button> */}
               </div>
             </div>
           </div>
