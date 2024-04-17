@@ -22,7 +22,7 @@ export default function Home() {
           <div className="flex flex-col space-y-2">
             <SignUpButton
               afterSignInUrl="/candidate/dashboard"
-              afterSignUpUrl="/candidate/dashboard"
+              afterSignUpUrl="/candidate-sign-up"
               mode="modal"
             >
               <Button
@@ -32,12 +32,12 @@ export default function Home() {
                 <span className="mr-2">
                   <UserRoundSearch className="h-4 w-4" />
                 </span>
-                Sign Up as Job Seeker
+                Sign In as Job Seeker
               </Button>
             </SignUpButton>
             <SignUpButton
               afterSignInUrl="/recruiter/dashboard"
-              afterSignUpUrl="/sign-up"
+              afterSignUpUrl="/recruiter-sign-up"
               mode="modal"
             >
               <Button
@@ -47,7 +47,7 @@ export default function Home() {
                 <span className="mr-2">
                   <Building2 className="h-4 w-4" />
                 </span>
-                Sign Up as Recruiter
+                Sign In as Recruiter
               </Button>
             </SignUpButton>
           </div>

@@ -49,3 +49,27 @@ export const recruiterJobFormSchema = z.object({
   salaryRange: z.string().trim().optional(),
   additionalInfo: z.string().optional(),
 });
+
+export const recruiterSignUpFormSchema = z.object({
+  // First Name
+  firstName: z.string().trim().min(1, "First Name is required"),
+  // Last Name
+  lastName: z.string().trim().min(1, "Last Name is required"),
+  // Email
+  email: z.string().email("Email is required"),
+  // Company Name
+  companyName: z.string().trim().min(1, "Company name is required"),
+});
+
+export const candidateSignUpFormSchema = z.object({
+  // First Name
+  firstName: z.string().trim().min(1, "First Name is required"),
+  // Last Name
+  lastName: z.string().trim().min(1, "Last Name is required"),
+  // Email
+  email: z.string().email("Email is required"),
+  // Phone Number
+  phone: z.string().trim().min(1, "Phone number is required"),
+  // Date of Birth
+  dob: z.string().trim().min(1, "Date of birth is required"),
+});

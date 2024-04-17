@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -14,21 +16,16 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
-const formSchema = z.object({
-  // First Name
-  firstName: z.string().trim().min(1, "First Name is required"),
-  // Last Name
-  lastName: z.string().trim().min(1, "Last Name is required"),
-  // Email
-  email: z.string().email("Email is required"),
-  // Company Name
-  companyName: z.string().trim().min(1, "Company name is required"),
-});
+import { recruiterSignUpFormSchema } from "@/lib/formSchemas";
+import { recruiterSignUpFormSubmit } from "@/actions/recruiterSignUpFormSubmit";
+import { toast } from "@/components/ui/use-toast";
+import { ToastAction } from "@/components/ui/toast";
+import { Spinner } from "@/components/spinner";
+import { useUserType } from "@/lib/store/use-user-type";
 
 const SignUpForm = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof recruiterSignUpFormSchema>>({
+    resolver: zodResolver(recruiterSignUpFormSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -37,10 +34,40 @@ const SignUpForm = () => {
     },
   });
 
+  const router = useRouter();
+  const setUserType = useUserType((state) => state.setUserType);
+
   // Submit handler for form:
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof recruiterSignUpFormSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
+    await recruiterSignUpFormSubmit(values)
+      .then(() => {
+        toast({
+          variant: "default",
+          title: "Signed Up successfully!",
+          description: "Redirecting you to Dashboard...",
+          action: (
+            <ToastAction altText="Dashboard">
+              <Spinner />
+            </ToastAction>
+          ),
+        });
+      })
+      .then(() => {
+        setTimeout(() => {
+          router.push("/recruiter/dashboard");
+        }, 2000);
+        setUserType("Recruiter");
+      })
+      .catch((error) => {
+        toast({
+          variant: "destructive",
+          title: "Sign-up failed!",
+          description: `${error.message}`,
+          action: <ToastAction altText="Try again">Try again</ToastAction>,
+        });
+      });
     console.log(values);
   }
 
@@ -87,7 +114,6 @@ const SignUpForm = () => {
               <FormControl>
                 <Input placeholder="jordan@gmail.com" {...field} />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
