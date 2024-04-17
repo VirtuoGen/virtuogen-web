@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import type { UserResource } from "@clerk/types";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -22,10 +23,14 @@ import { ToastAction } from "@/components/ui/toast";
 import { Spinner } from "@/components/spinner";
 import { recruiterJobFormSchema } from "@/lib/formSchemas";
 import { recruiterJobSubmitForm } from "@/actions/recruiterJobSubmi";
+import { useUser } from "@clerk/nextjs";
 
 const JobForm = () => {
   const router = useRouter();
   const { toast } = useToast();
+
+  const { user } = useUser();
+  // console.log(user);
 
   const form = useForm<z.infer<typeof recruiterJobFormSchema>>({
     resolver: zodResolver(recruiterJobFormSchema),
@@ -51,32 +56,37 @@ const JobForm = () => {
   // Submit handler for form:
   async function onSubmit(values: z.infer<typeof recruiterJobFormSchema>) {
     // ✅ This will be type-safe and validated.
-    await recruiterJobSubmitForm(values)
-      .then(() => {
-        toast({
-          variant: "default",
-          title: "Job submitted successfully!",
-          description: "Redirecting you to Job Board...",
-          action: (
-            <ToastAction altText="Try again">
-              <Spinner />
-            </ToastAction>
-          ),
-        });
-      })
-      .then(() =>
-        setTimeout(() => {
-          router.push("/recruiter/jobs-posted");
-        }, 2000),
+    if (user !== null) {
+      await recruiterJobSubmitForm(
+        values,
+        user?.emailAddresses[0].emailAddress as string,
       )
-      .catch((error) => {
-        toast({
-          variant: "destructive",
-          title: "Job submission failed!",
-          description: `${error.message}`,
-          action: <ToastAction altText="Try again">Try again</ToastAction>,
+        .then(() => {
+          toast({
+            variant: "default",
+            title: "Job submitted successfully!",
+            description: "Redirecting you to Job Board...",
+            action: (
+              <ToastAction altText="Try again">
+                <Spinner />
+              </ToastAction>
+            ),
+          });
+        })
+        .then(() =>
+          setTimeout(() => {
+            router.push("/recruiter/jobs-posted");
+          }, 2000),
+        )
+        .catch((error) => {
+          toast({
+            variant: "destructive",
+            title: "Job submission failed!",
+            description: `${error.message}`,
+            action: <ToastAction altText="Try again">Try again</ToastAction>,
+          });
         });
-      });
+    }
   }
 
   return (
