@@ -4,6 +4,7 @@ import { Building2, UserRoundSearch } from "lucide-react";
 import { SignUpButton } from "@clerk/clerk-react";
 
 import { Button } from "@/components/ui/button";
+import { useUserType } from "@/lib/store/use-user-type";
 
 export default function Home() {
   return (

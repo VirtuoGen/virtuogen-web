@@ -30,7 +30,6 @@ const JobForm = () => {
   const { toast } = useToast();
 
   const { user } = useUser();
-  // console.log(user);
 
   const form = useForm<z.infer<typeof recruiterJobFormSchema>>({
     resolver: zodResolver(recruiterJobFormSchema),
@@ -50,6 +49,7 @@ const JobForm = () => {
       employmentType: "",
       salaryRange: "",
       additionalInfo: "",
+      experienceLevel: "",
     },
   });
 
@@ -158,6 +158,24 @@ const JobForm = () => {
               <FormControl>
                 <Input
                   placeholder="Qualifications required for this job"
+                  {...field}
+                  className="dark:bg-virtuo-black-origin"
+                />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="experienceLevel"
+          render={({ field }) => (
+            <FormItem className="">
+              <FormLabel>Experience Level</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Experience Level required for this job"
                   {...field}
                   className="dark:bg-virtuo-black-origin"
                 />

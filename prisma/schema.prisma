@@ -86,6 +86,7 @@ model Job {
   responsibilites       String?
   qualifications        String
   benefits              String?
+  experienceLevel       String
   companyName           String
   comapnyLogo           String
   companyOverview       String?

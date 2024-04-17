@@ -9,8 +9,17 @@ import { candidateJobFormSchema } from "@/lib/formSchemas";
 type FormValues = z.infer<typeof candidateJobFormSchema>;
 
 // Function to submit the form
-export async function submitForm(values: FormValues, fileUrl: FileUrlProps) {
+export async function submitForm(
+  values: FormValues,
+  fileUrl: FileUrlProps,
+  candidateEmail: string,
+) {
   try {
+    const userId = await db.candidate.findFirst({
+      where: {
+        email: candidateEmail,
+      },
+    });
     // Upload the form values to the server
     await db.file.create({
       data: {
@@ -23,7 +32,7 @@ export async function submitForm(values: FormValues, fileUrl: FileUrlProps) {
         email: values.email,
         phone: values.phoneNumber,
         alternatePhone: values.alternatePhoneNumber,
-        Candidate: { connect: { id: "clv3cei300001s70w2j6w7k2p" } },
+        Candidate: { connect: { id: userId?.id } },
         Job: { connect: { id: "clv3cei360003s70wg37lgoqq" } },
       },
     });

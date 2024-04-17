@@ -31,6 +31,8 @@ export const recruiterJobFormSchema = z.object({
   qualifications: z.string().trim().min(1, "Qualifications are required"),
   // Benefits & Perks
   benefits: z.string().trim().optional(),
+  // Experience Level
+  experienceLevel: z.string().trim().min(1, "Experience level is required"),
   // Company Information
   companyName: z.string().trim().min(1, "Company name is required"),
   companyLogo: z.string().trim().url("Invalid company logo URL").optional(), // Optional URL validation

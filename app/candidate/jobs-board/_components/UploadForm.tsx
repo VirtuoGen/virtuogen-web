@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useUser } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -30,6 +31,7 @@ const UploadForm = ({
 }) => {
   const [fileUrl, setFileUrl] = useState<FileUrlProps>([]);
 
+  const { user } = useUser();
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof candidateJobFormSchema>>({
@@ -51,7 +53,7 @@ const UploadForm = ({
 
   // Submit handler for form:
   async function onSubmit(values: z.infer<typeof candidateJobFormSchema>) {
-    submitForm(values, fileUrl);
+    submitForm(values, fileUrl, user?.emailAddresses[0].emailAddress as string);
 
     setIsOpen(false);
 

@@ -11,18 +11,7 @@ const Page = () => {
       </div>
 
       <div className="mr-auto grid grid-cols-1 place-items-center gap-3 gap-y-4 rounded pl-8 text-[15px] md:pl-16 lg:grid-cols-2 lg:place-items-start">
-        {companyData.map((data, index) => (
-          <JobCards
-            key={index}
-            companyImageUrl={data.companyImageUrl}
-            companyName={data.companyName}
-            level={data.level}
-            location={data.location}
-            roleType={data.roleType}
-            title={data.title}
-            salary={data.salary}
-          />
-        ))}
+        <JobCards />
       </div>
     </section>
   );

@@ -1,7 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
-import { Cake, Eye, Mail, MapPin, Phone } from "lucide-react";
+import { Cake, Eye, Mail, MapPin, Phone, Zap } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { useState } from "react";
+import styles from "../../../candidate/jobs-board/_components/form.module.css";
 
 const Page = () => {
   return (
@@ -42,7 +52,7 @@ const Page = () => {
               className="size-12"
             />
             <Link
-              href="/assets/icons/resume.svg"
+              href="https://utfs.io/f/64c1d541-e868-471b-9bfc-b4ec0d929c1d-goa3wx.pdf"
               locale={false}
               rel="noopener noreferrer"
               target="_blank"
@@ -52,7 +62,7 @@ const Page = () => {
             >
               Resume.pdf
             </Link>
-            <Eye className="ml-auto size-5" />
+            <ShowResumeButton />
           </div>
         </div>
 
@@ -138,3 +148,35 @@ const Page = () => {
 };
 
 export default Page;
+
+const ShowResumeButton = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  return (
+    <Dialog
+      open={isOpen}
+      onOpenChange={(v) => {
+        if (!v) {
+          setIsOpen(v);
+        }
+      }}
+    >
+      <DialogTrigger onClick={() => setIsOpen(true)} asChild>
+        <Eye className="ml-auto size-5 transition-all duration-500 hover:scale-150 hover:cursor-pointer hover:text-virtuo-orange-origin" />
+      </DialogTrigger>
+
+      <DialogContent
+        className={`max-h-[800px] min-h-[400px] min-w-[800px] overflow-y-scroll ${styles.parent} bg-virtuo-gray2 dark:bg-gradient-to-br dark:from-virtuo-black-one dark:to-virtuo-black-origin`}
+      >
+        <DialogHeader>Your Resume</DialogHeader>
+        <iframe
+          src={`https://utfs.io/f/67231a59-bae9-453d-9d4e-6d996bfaf0f5-goa3wx.pdf`}
+          title="PDF Viewer"
+          width="100%"
+          // height="600px"
+          className="max-h-[800px] min-h-[800px]"
+        />
+      </DialogContent>
+    </Dialog>
+  );
+};

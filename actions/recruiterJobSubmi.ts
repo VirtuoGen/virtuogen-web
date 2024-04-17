@@ -2,7 +2,6 @@
 "use server";
 
 import { z } from "zod";
-import type { UserResource } from "@clerk/types";
 
 import { db } from "@/lib/db";
 import { recruiterJobFormSchema } from "@/lib/formSchemas";
@@ -36,6 +35,7 @@ export async function recruiterJobSubmitForm(
         jobSummary: values.jobSummary,
         responsibilites: values.responsibilities,
         qualifications: values.qualifications,
+        experienceLevel: values.experienceLevel,
         benefits: values.benefits,
         companyName: values.companyName,
         companyOverview: values.companyOverview,

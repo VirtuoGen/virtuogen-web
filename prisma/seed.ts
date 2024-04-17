@@ -47,6 +47,7 @@ async function seed() {
       applicationDeadline: new Date(2024, 4, 30),
       openings: 3,
       department: "Engineering",
+      experienceLevel: "Mid-level",
       employmentType: "Full-time",
       salaryRange: "$60,000 - $80,000",
       postedBy: {
@@ -63,6 +64,7 @@ async function seed() {
       jobTitle: "Software developer",
       jobSummary: "Join our team as a developer!",
       companyName: "Example Company 2",
+      experienceLevel: "Senior-level",
       location: "Kol",
       applicationDeadline: new Date(2024, 4, 30),
       openings: 3,
