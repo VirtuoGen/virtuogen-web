@@ -72,6 +72,11 @@ const config = {
             origin: "#000000",
             two: "#040404",
           },
+          chart:{
+            color1: "#56C021",
+            color2: "#FF802F",
+            color3: "#0068FE",
+          },
           white: {
             card: "#FFFCFA",
             origin: "#FFFFFF",

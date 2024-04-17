@@ -256,3 +256,126 @@ export const candidateDashboardData = [
     label: "last week",
   },
 ];
+
+export const questionData = [
+  {
+      "question": "How do you approach the design of a Python application that needs to handle high levels of concurrency?",
+      "response": "I use a lot of threads and processes to handle concurrency, but I don't really pay much attention to managing resources or avoiding race conditions. I hope it works fine without crashing.",
+      "model_answer": "To design a Python application for high levels of concurrency, I use asynchronous programming with libraries like asyncio to manage multiple tasks simultaneously. I design the application architecture around event-driven patterns, using queues for task management and separating I/O-bound and CPU-bound tasks. This approach helps improve responsiveness and resource utilization. I also consider using thread pools or process pools for parallel execution if necessary, while ensuring thread safety and proper synchronization mechanisms are in place.",
+      "scores": {
+          "accuracy": 2,
+          "clarity": 2,
+          "relevance": 2,
+          "creativity": 1,
+          "technical_knowledge": 2,
+          "problem_solving_skills": 1,
+          "system_design_knowledge": 1,
+          "code_efficiency": 1,
+          "attention_to_detail": 1,
+          "testing_skills": 1,
+          "communication_skills": 1,
+          "adaptability_and_learning": 1,
+          "time_management": 1,
+          "teamwork_and_collaboration": 1,
+          "creativity_and_innovation": 1
+      },
+      "total_score": 20,
+      "overall_grade": "Below Average"
+  },
+  {
+      "question": "Describe a time when you encountered a performance bottleneck in a Python application and how did you address it?",
+      "response": "I noticed the app was running slow, so I just restarted it and hoped that would help. I didn't use any profiling tools or optimize the code.",
+      "model_answer": "I once worked on a Python application that experienced slow performance during data processing. I started by using profiling tools like cProfile to identify the bottleneck in the code. Upon analysis, I found that nested loops were causing excessive computations. I optimized the code by using efficient data structures such as sets and dictionaries, and I leveraged list comprehensions to streamline operations. This significantly improved the application's speed and reduced memory usage.",
+      "scores": {
+          "accuracy": 1,
+          "clarity": 2,
+          "relevance": 1,
+          "creativity": 1,
+          "technical_knowledge": 1,
+          "problem_solving_skills": 1,
+          "system_design_knowledge": 1,
+          "code_efficiency": 1,
+          "attention_to_detail": 1,
+          "testing_skills": 1,
+          "communication_skills": 1,
+          "adaptability_and_learning": 1,
+          "time_management": 1,
+          "teamwork_and_collaboration": 1,
+          "creativity_and_innovation": 1
+      },
+      "total_score": 16,
+      "overall_grade": "Below Average"
+  },
+  {
+      "question": "Moving forward, how do you ensure the quality and correctness of your code in a Python project?",
+      "response": "I don't focus too much on testing or code quality. If it works, I just leave it as is and move on to the next task. Peer code reviews aren't something I prioritize.",
+      "model_answer": "I ensure code quality and correctness by following best coding practices such as writing clear and concise code, adhering to PEP 8 style guidelines, and using meaningful variable names. I conduct comprehensive testing using unit tests, integration tests, and functional tests to validate the code's behavior. Additionally, I participate in peer code reviews to gain feedback and catch potential issues early. I also use static analysis tools like pylint or flake8 to identify code quality issues and enforce coding standards.",
+      "scores": {
+          "accuracy": 2,
+          "clarity": 2,
+          "relevance": 2,
+          "creativity": 1,
+          "technical_knowledge": 2,
+          "problem_solving_skills": 1,
+          "system_design_knowledge": 1,
+          "code_efficiency": 1,
+          "attention_to_detail": 1,
+          "testing_skills": 1,
+          "communication_skills": 1,
+          "adaptability_and_learning": 1,
+          "time_management": 1,
+          "teamwork_and_collaboration": 1,
+          "creativity_and_innovation": 1
+      },
+      "total_score": 20,
+      "overall_grade": "Below Average"
+  },
+  {
+      "question": "Can you discuss a time when you had to debug a complex issue in a MySQL database? What was your approach?",
+      "response": "When I ran into an issue, I tried random changes to the queries until something seemed to work. I didn't bother analyzing the query plans or looking at indexes.",
+      "model_answer": "In a past project, I encountered a complex issue where certain MySQL queries were causing slowdowns and timeouts. I approached the problem by first analyzing the queries using MySQL's EXPLAIN command to understand the query execution plans and identify potential bottlenecks. I optimized the queries by adding indexes and rewriting suboptimal parts of the queries. Additionally, I adjusted database configuration settings for better performance. These steps resolved the issue and significantly improved query execution times.",
+      "scores": {
+          "accuracy": 1,
+          "clarity": 2,
+          "relevance": 1,
+          "creativity": 1,
+          "technical_knowledge": 1,
+          "problem_solving_skills": 1,
+          "system_design_knowledge": 1,
+          "code_efficiency": 1,
+          "attention_to_detail": 1,
+          "testing_skills": 1,
+          "communication_skills": 1,
+          "adaptability_and_learning": 1,
+          "time_management": 1,
+          "teamwork_and_collaboration": 1,
+          "creativity_and_innovation": 1
+      },
+      "total_score": 16,
+      "overall_grade": "Below Average"
+  },
+  {
+      "question": "How do you collaborate with other team members during the development of a Python project?",
+      "response": "I prefer working alone and don't communicate much with the team. If I need to share code, I just push it without reviewing it or asking for feedback.",
+      "model_answer": "During the development of a Python project, I maintain open and clear communication with team members. I actively participate in discussions and planning meetings to share ideas and gather input from others. During code reviews, I provide constructive feedback and am open to suggestions for improving my own code. I also offer support and mentorship to junior developers and pair programming when appropriate. Collaboration tools like Git and project management software help facilitate coordination and keep everyone aligned.",
+      "scores": {
+          "accuracy": 1,
+          "clarity": 2,
+          "relevance": 1,
+          "creativity": 1,
+          "technical_knowledge": 1,
+          "problem_solving_skills": 1,
+          "system_design_knowledge": 1,
+          "code_efficiency": 1,
+          "attention_to_detail": 1,
+          "testing_skills": 1,
+          "communication_skills": 1,
+          "adaptability_and_learning": 1,
+          "time_management": 1,
+          "teamwork_and_collaboration": 1,
+          "creativity_and_innovation": 1
+      },
+      "total_score": 16,
+      "overall_grade": "Below Average"
+  }
+]

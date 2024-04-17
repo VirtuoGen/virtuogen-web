@@ -1,10 +1,104 @@
+"use client";
 import Image from "next/image";
 
-import { Cake, CircleX, Mail, MapPin, Phone, Zap } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Cake,
+  CircleX,
+  Mail,
+  MapPin,
+  Phone,
+  Zap,
+} from "lucide-react";
+
+import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { questionData } from "@/lib/utils";
 
 const Page = () => {
+  const [questionIndex, setQuestionIndex] = useState(0);
+  let backgroundColor = ["#56C021", "#FF802F", "#0068FE"];
+  let borderColor = ["#56C021", "#FF802F", "#0068FE"];
+
+  // Define the additional colors you want to add
+  const additionalColors = [
+    "#8A2BE2", // Purple
+    "#DAA520", // Goldenrod
+    "#FF69B4", // Hot Pink
+    "#7FFF00", // Chartreuse
+    "#DC143C", // Crimson
+    "#00CED1", // Dark Turquoise
+    "#FFD700", // Gold
+    "#ADFF2F", // Green Yellow
+    "#00FA9A", // Medium Spring Green
+    "#FF6347", // Tomato
+    "#800000", // Maroon
+    "#4682B4", // Steel Blue
+    "#C71585", // Medium Violet Red
+    "#00008B", // Dark Blue
+  ];
+
+  // Add the additional colors to both arrays
+  backgroundColor = backgroundColor.concat(additionalColors);
+  borderColor = borderColor.concat(additionalColors);
+  const scores:any = questionData[questionIndex].scores;
+
+  // Get the keys of the scores object
+  const keys = Object.keys(questionData[questionIndex].scores);
+
+  // Capitalize the keys and replace underscores with spaces
+  const capitalizedKeys = keys.map((key) => {
+    // Replace underscores with spaces
+    let formattedKey = key.replace(/_/g, " ");
+
+    // Capitalize the first letter of each word in the key
+    formattedKey = formattedKey
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+
+    return formattedKey;
+  });
+
+  let list = [];
+  for (const key in questionData[questionIndex].scores) {
+    if (scores.hasOwnProperty(key)) {
+      // Format the key and value as a string and add it to the list
+      let formattedKey = key
+        .replace(/_/g, " ")
+        .replace(/\b\w/g, (match) => match.toUpperCase());
+      list.push(`${formattedKey}: ${scores[key]}`);
+    }
+  }
+
+  const convertString = (str: string) => {
+    str.replace(/_/g, "");
+
+    let formattedStr = str
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+    return formattedStr;
+  };
+
+  const data = {
+    labels: capitalizedKeys,
+    datasets: [
+      {
+        data: Object.values(questionData[questionIndex].scores),
+        backgroundColor: backgroundColor,
+        borderColor: backgroundColor,
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
     <section className="mx-auto flex h-[100vh-20vh] max-h-[1100px] w-screen max-w-[1600px] flex-col overflow-x-hidden">
       <div className="mx-6 flex items-center justify-between py-8 md:px-6 md:py-4">
@@ -29,30 +123,115 @@ const Page = () => {
             <p className="font-light">Role: Frontend Development</p>
           </div>
           <p className="mx-auto mt-3 rounded-lg bg-[#FFDFCB] px-2 py-2 text-center text-sm font-light text-virtuo-orange-origin">
-            Experience Level : Beginner
+            Experience Level : Fresher
           </p>
         </div>
 
         <div className="col-span-3 row-span-1 rounded-md bg-virtuo-gray2 px-6 pt-3 dark:bg-virtuo-black-one md:col-span-2 md:row-span-8 md:row-start-1">
           <h1 className="text-lg">Analysis</h1>
-          <div className="mt-3 flex items-center">
-            {/* TODO: Add analytics Data */}
-          </div>
-          <div className="mt-3 flex justify-end space-x-4">
-            <Button
-              variant="outline"
-              className="flex h-[40px] items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
-            >
-              <Zap className="size-5" fill="white" />
-              <span>Accept</span>
-            </Button>
-            <Button
-              variant="outline"
-              className="flex h-[40px] items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
-            >
-              <CircleX className="size-5" />
-              <span>Reject</span>
-            </Button>
+          <div className="flex h-fit w-full items-start">
+            <div className="mt-3 flex w-3/5 flex-col">
+              <div className="flex flex-col gap-3">
+                <div>
+                  <h1 className="text-lg font-semibold text-virtuo-orange-origin">
+                    Question 1
+                  </h1>
+                  <p className="text-virtuo-gray-origin text-sm">
+                    {questionData[questionIndex].question}
+                  </p>
+                </div>
+                <div>
+                  <h1 className="text-lg font-semibold text-virtuo-orange-origin">
+                    Response:
+                  </h1>
+                  <p className="text-virtuo-gray-origin text-sm">
+                    {questionData[questionIndex].response}
+                  </p>
+                </div>
+                <div>
+                  <h1 className="text-lg font-semibold text-virtuo-orange-origin">
+                    Scores:
+                  </h1>
+                  <p className="text-virtuo-gray-origin text-sm grid grid-cols-2 gap-2">
+                    {
+                      list.map((item, index) => (
+                        <div key={index}>{item}</div>
+                      ))
+                    }
+                  </p>
+                </div>
+                <div>
+                  <h1 className="text-lg font-semibold text-virtuo-orange-origin">
+                    Total Score:
+                  </h1>
+                  <p className="text-virtuo-gray-origin text-sm">
+                    {questionData[questionIndex].total_score}
+                  </p>
+                </div>
+                <div>
+                  <h1 className="text-lg font-semibold text-virtuo-orange-origin">
+                    Overall Grade:
+                  </h1>
+                  <p className="text-virtuo-gray-origin text-sm">
+                    {questionData[questionIndex].overall_grade}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="flex h-fit w-3/5 flex-col items-center justify-evenly">
+              <Doughnut
+                data={data}
+                options={{
+                  responsive: true,
+                  plugins: {
+                    legend: {
+                      position: "left",
+                      labels: {
+                        usePointStyle: true,
+                        pointStyle: "circle",
+                        color: "white",
+                      },
+                    },
+                    title: {
+                      display: true,
+                      text: "Result Analysis",
+                    },
+                  },
+                }}
+              />
+              <div className="mt-3 flex justify-end space-x-4">
+                {questionIndex !== 0 && (
+                  <Button
+                    variant="outline"
+                    className="flex h-[40px] items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
+                    onClick={() => {
+                      setQuestionIndex(questionIndex - 1);
+                    }}
+                  >
+                    <ArrowLeft className="size-5" fill="white" />
+                    <span>Previous</span>
+                  </Button>
+                )}
+                <Button
+                  variant="outline"
+                  className="flex h-[40px] items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
+                  onClick={() => {
+                    setQuestionIndex(questionIndex + 1);
+                  }}
+                  disabled={questionData.length === questionIndex + 1}
+                >
+                  <ArrowRight className="size-5" fill="white" />
+                  <span>Next</span>
+                </Button>
+                {/* <Button
+                  variant="outline"
+                  className="flex h-[40px] items-center justify-center space-x-1 px-5 py-4 transition-all duration-500 hover:bg-accent-foreground hover:text-virtuo-white-origin dark:hover:bg-virtuo-orange-hover"
+                >
+                  <CircleX className="size-5" />
+                  <span>Reject</span>
+                </Button> */}
+              </div>
+            </div>
           </div>
         </div>
 
